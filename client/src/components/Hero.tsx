@@ -132,9 +132,9 @@ export default function Hero() {
                 </div>
 
                 <FloatingElement
-                  position="-top-6 -left-6"
+                  position="-top-4 -left-8"
                   animationDelay={0}
-                  className="bg-gray-700/90 rounded-xl shadow-lg p-2 px-3 animate-float-slow z-20 relative"
+                  className="bg-gray-700/90 rounded-xl shadow-lg p-2 px-4 animate-float-slow z-20 relative"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center">
@@ -161,9 +161,9 @@ export default function Hero() {
                 </FloatingElement>
 
                 <FloatingElement
-                  position="-bottom-6 -right-6"
+                  position="bottom-0 -right-10"
                   animationDelay={0.2}
-                  className="bg-gray-700/90 rounded-xl shadow-lg p-2 px-3 animate-float z-20 relative"
+                  className="bg-gray-700/90 rounded-xl shadow-lg p-2 px-4 animate-float z-20 relative"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-teal-400 rounded-full flex items-center justify-center">
