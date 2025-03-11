@@ -112,77 +112,71 @@ export default function Hero({ onStartClick }: HeroProps = {}) {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="scene relative"
+              className="scene relative flex items-center justify-center"
             >
-              <div className="card-3d relative">
-                <div className="relative rounded-3xl shadow-2xl max-w-full z-10 bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 h-[400px] flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="/images/real-dogs/dog1.jpg" 
-                    alt="Happy golden retriever dog" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                    onError={(e) => {
-                      // If image fails to load, set background color instead
-                      e.currentTarget.style.display = 'none';
-                      if (e.currentTarget.parentElement) {
-                        e.currentTarget.parentElement.classList.add('bg-gradient-to-r', 'from-purple-400', 'to-pink-300');
-                      }
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-primary/20"></div>
-                  
-                  <div className="relative z-10 glass-morphism p-6 rounded-xl shadow-lg max-w-[70%] text-center">
-                    <h3 className="coni-logo text-xl mb-2 text-primary font-bold"><span className="coni-logo">coni</span> box</h3>
-                    <p className="text-gray-700">Personalized monthly box with toys, treats, and wellness products</p>
+              <motion.div
+                initial={{ y: 20 }}
+                animate={{ y: [0, -15, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 4,
+                  ease: "easeInOut"
+                }}
+                className="relative z-10"
+              >
+                <img 
+                  src="/images/fluffy-dog.png" 
+                  alt="Fluffy happy dog" 
+                  className="max-w-full h-auto max-h-[500px] object-contain"
+                />
+              </motion.div>
+
+              {/* Pills repositioned to work with the dog image */}
+              <div className="absolute -left-4 bottom-32 z-20">
+                <div className="bg-gray-700 rounded-full py-1.5 pl-1.5 pr-5 flex items-center">
+                  <div className="w-8 h-8 bg-rose-500 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-white h-4 w-4"
+                    >
+                      <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                      <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                      <path d="M2 22h20" />
+                    </svg>
+                  </div>
+                  <div className="ml-2">
+                    <p className="font-bold text-white text-sm">Personalized</p>
+                    <p className="text-gray-300 text-xs">5-7 unique items</p>
                   </div>
                 </div>
+              </div>
 
-                {/* Pills positioned exactly like in the screenshot */}
-                <div className="absolute -left-4 bottom-32 z-20">
-                  <div className="bg-gray-700 rounded-full py-1.5 pl-1.5 pr-5 flex items-center">
-                    <div className="w-8 h-8 bg-rose-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-white h-4 w-4"
-                      >
-                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
-                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
-                        <path d="M2 22h20" />
-                      </svg>
-                    </div>
-                    <div className="ml-2">
-                      <p className="font-bold text-white text-sm">Personalized</p>
-                      <p className="text-gray-300 text-xs">5-7 unique items</p>
-                    </div>
+              <div className="absolute right-6 bottom-12 z-20">
+                <div className="bg-gray-700 rounded-full py-1.5 pl-1.5 pr-5 flex items-center">
+                  <div className="w-8 h-8 bg-teal-400 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-white h-4 w-4"
+                    >
+                      <path d="M12 2a7 7 0 0 1 9 6.5c0 7-10 11.5-9 16.5" />
+                      <path d="M12 2a7 7 0 0 0-9 6.5c0 7 10 11.5 9 16.5" />
+                    </svg>
                   </div>
-                </div>
-
-                <div className="absolute right-6 bottom-3 z-20">
-                  <div className="bg-gray-700 rounded-full py-1.5 pl-1.5 pr-5 flex items-center">
-                    <div className="w-8 h-8 bg-teal-400 rounded-full flex-shrink-0 flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-white h-4 w-4"
-                      >
-                        <path d="M12 2a7 7 0 0 1 9 6.5c0 7-10 11.5-9 16.5" />
-                        <path d="M12 2a7 7 0 0 0-9 6.5c0 7 10 11.5 9 16.5" />
-                      </svg>
-                    </div>
-                    <div className="ml-2">
-                      <p className="font-bold text-white text-sm">AI-Powered</p>
-                      <p className="text-gray-300 text-xs">Learns preferences</p>
-                    </div>
+                  <div className="ml-2">
+                    <p className="font-bold text-white text-sm">AI-Powered</p>
+                    <p className="text-gray-300 text-xs">Learns preferences</p>
                   </div>
                 </div>
               </div>
