@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
-import { Gamepad, Bone, Heart, FileText, QuoteIcon } from "lucide-react";
+import { Gamepad, Bone, Heart, FileText, Quote } from "lucide-react";
+import FloatingDog from "./FloatingDog";
 
 export default function WhatsInside() {
   const [sectionRef, sectionInView] = useScrollAnimation(0.1);
@@ -55,8 +56,13 @@ export default function WhatsInside() {
   };
 
   return (
-    <section id="whats-inside" className="py-20 bg-gray-50 relative">
-      <div className="container mx-auto px-4">
+    <section id="whats-inside" className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* Floating dogs with different positions */}
+      <FloatingDog position="top-28 left-[8%]" size="w-12 h-12" delay={0.7} zIndex={20} rotationRange={10} />
+      <FloatingDog position="bottom-40 right-[12%]" size="w-16 h-16" delay={0.3} zIndex={20} />
+      <FloatingDog position="top-1/2 right-[5%]" size="w-14 h-14" delay={1.1} zIndex={20} rotationRange={20} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,7 +130,7 @@ export default function WhatsInside() {
                       </div>
                     </div>
                     <div className="md:w-2/3">
-                      <QuoteIcon className="h-8 w-8 text-primary/20 mb-4" />
+                      <Quote className="h-8 w-8 text-primary/20 mb-4" />
                       <p className="text-lg text-gray-700 mb-4">
                         "The algorithm knew my puppy would start teething a week
                         before it happened and sent the perfect toys. It was

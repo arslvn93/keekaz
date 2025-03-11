@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { X, Brain, BarChart, TrendingUp, RefreshCw } from "lucide-react";
+import TextReveal from "./TextReveal";
+import FloatingDog from "./FloatingDog";
 
 export default function HowItWorks() {
   const [problemsRef, problemsInView] = useScrollAnimation(0.1);
@@ -40,7 +42,11 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="py-20 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      {/* Add floating dogs to this section too */}
+      <FloatingDog position="top-32 right-[7%]" size="w-14 h-14" delay={0.9} zIndex={20} />
+      <FloatingDog position="bottom-20 left-[9%]" size="w-16 h-16" delay={0.4} zIndex={20} rotationRange={15} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,10 +56,13 @@ export default function HowItWorks() {
           <h2 className="font-bold text-3xl md:text-4xl mb-4">
             How TAILWAG Outsmarts The Competition
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Using advanced AI and machine learning to create a truly
-            personalized experience for your one-of-a-kind dog.
-          </p>
+          <div className="text-gray-600 max-w-2xl mx-auto overflow-hidden">
+            <TextReveal 
+              text="Using advanced AI and machine learning to create a truly personalized experience for your one-of-a-kind dog."
+              delay={0.3}
+              highlightWords={["AI", "machine learning", "personalized", "one-of-a-kind"]}
+            />
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center mb-20">
@@ -78,7 +87,13 @@ export default function HowItWorks() {
                     className="flex items-start gap-2"
                   >
                     <X className="text-red-500 mt-1 h-5 w-5 flex-shrink-0" />
-                    <span>{item}</span>
+                    <div className="overflow-hidden">
+                      <TextReveal 
+                        text={item} 
+                        delay={0.2 + index * 0.1} 
+                        highlightWords={["Generic", "no consideration", "One-size-fits-all", "no adaptation"]}
+                      />
+                    </div>
                   </motion.li>
                 ))}
               </ul>
