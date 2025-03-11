@@ -23,10 +23,10 @@ export default function ScrollRevealSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Left side with text reveal */}
-          <div className="relative">
+          <div className="relative z-30"> {/* Increased z-index */}
             <TextReveal 
               text={multiLineText}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight uppercase tracking-tight"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight uppercase tracking-tight"
               highlightWords={highlightWords}
               multiLine={true}
               staggerChildren={0.3}
@@ -49,10 +49,10 @@ export default function ScrollRevealSection() {
           </div>
           
           {/* Right side with floating elements */}
-          <div className="relative h-[500px]">
+          <div className="relative h-[500px] md:h-[600px] mt-16 md:mt-0"> {/* Increased height and added top margin on mobile */}
             {/* Animated elements here */}
             <motion.div 
-              className="absolute top-[5%] left-[3%] z-10"
+              className="absolute top-[5%] left-[3%] z-10 hidden md:block" /* Hidden on mobile */
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: -5 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -76,7 +76,7 @@ export default function ScrollRevealSection() {
             </motion.div>
             
             <motion.div 
-              className="absolute top-[40%] left-[45%] z-30"
+              className="absolute top-[40%] left-[25%] md:left-[45%] z-20" /* Adjusted position */
               initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: -3 }}
               transition={{ duration: 0.7, delay: 0.9 }}

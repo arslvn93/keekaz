@@ -116,16 +116,16 @@ export default function TextReveal({
         return (
           <motion.div 
             key={index} 
-            className="overflow-hidden mb-4"
+            className="overflow-visible mb-6" // Changed to overflow-visible and increased margin-bottom
             variants={lineVariants}
           >
-            <div>
+            <div className="flex flex-wrap"> {/* Flex layout for better word wrapping */}
               {lineWords.map((word, i) => (
                 <span
                   key={i}
                   className={`${
                     shouldHighlight(word) ? "text-primary font-bold" : ""
-                  } inline-block mr-1`}
+                  } inline-block mr-3 mb-2`} // Increased spacing between words
                 >
                   {word}
                 </span>
