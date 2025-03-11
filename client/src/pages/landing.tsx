@@ -38,8 +38,8 @@ export default function LandingPage() {
       <main>
         <Hero onStartClick={openQuestionnaire} />
         <ScrollRevealSection onStartClick={openQuestionnaire} />
-        <StorytellingSection onStartClick={openQuestionnaire} />
         <WhatsInside />
+        <StorytellingSection onStartClick={openQuestionnaire} />
         <LifeStages />
         <AIAssistant />
         <Pricing onStartClick={openQuestionnaire} />
