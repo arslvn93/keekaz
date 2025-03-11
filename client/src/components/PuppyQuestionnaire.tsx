@@ -444,7 +444,7 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                             <span className="text-gray-700 dark:text-gray-300 text-sm">Large</span>
                           </div>
                           <div 
-                            className="relative h-8 cursor-pointer" 
+                            className="relative h-8 cursor-pointer weight-slider-container" 
                             onClick={(e) => {
                               const rect = e.currentTarget.getBoundingClientRect();
                               const x = e.clientX - rect.left;
@@ -478,11 +478,11 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                               dragElastic={0}
                               dragMomentum={false}
                               onDrag={(e, info) => {
-                                const element = e.currentTarget as HTMLElement;
-                                const parentElement = element.parentElement;
-                                if (!parentElement) return;
+                                // Use the slider container as reference
+                                const sliderContainer = document.querySelector('.weight-slider-container');
+                                if (!sliderContainer) return;
                                 
-                                const rect = parentElement.getBoundingClientRect();
+                                const rect = sliderContainer.getBoundingClientRect();
                                 const x = info.point.x - rect.left;
                                 const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
                                 
