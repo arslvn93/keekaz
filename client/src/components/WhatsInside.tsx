@@ -60,25 +60,26 @@ export default function WhatsInside() {
       {/* Floating real dog photos */}
       <FloatingRealPhoto 
         position="top-28 left-[8%]" 
-        size="w-24 h-24" 
+        size="w-28 h-28" 
         delay={0.7} 
         zIndex={20} 
         rotationRange={10} 
-        imageSrc="/images/real-dogs/dog1.jpg"
+        imageSrc="/images/real-dogs/dog2.jpg"
       />
       <FloatingRealPhoto 
         position="bottom-40 right-[12%]" 
-        size="w-28 h-28" 
+        size="w-32 h-32" 
         delay={0.3} 
         zIndex={20}
+        rotationRange={8}
         imageSrc="/images/real-dogs/dog4.jpg"
       />
       <FloatingRealPhoto 
         position="top-1/2 right-[5%]" 
-        size="w-20 h-20" 
+        size="w-24 h-24" 
         delay={1.1} 
         zIndex={20} 
-        rotationRange={20}
+        rotationRange={15}
         imageSrc="/images/real-dogs/dog5.jpg"
       />
       
@@ -138,20 +139,27 @@ export default function WhatsInside() {
                       <div className="w-48 h-48 rounded-full border-4 border-primary mx-auto bg-primary/10 flex items-center justify-center overflow-hidden">
                         <img 
                           src="/images/real-dogs/dog3.jpg" 
-                          alt="Lab dog" 
+                          alt="Dalmatian dog" 
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            // If image fails to load, set background color
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.parentElement) {
+                              e.currentTarget.parentElement.classList.add('bg-gradient-to-r', 'from-purple-400', 'to-pink-300');
+                            }
+                          }}
                         />
                       </div>
                     </div>
                     <div className="md:w-2/3">
                       <Quote className="h-8 w-8 text-primary/20 mb-4" />
                       <p className="text-lg text-gray-700 mb-4">
-                        "The algorithm knew my puppy would start teething a week
-                        before it happened and sent the perfect toys. It was
-                        like having a dog psychic!"
+                        "Coni always knows exactly what toys my active Dalmatian needs! 
+                        The personalized treats and toys are perfect for his high energy 
+                        level. It's like they really understand his personality!"
                       </p>
                       <div className="flex items-center justify-between">
-                        <p className="font-bold">Sarah M., Lab owner</p>
+                        <p className="font-bold">Michael R., Dalmatian owner</p>
                         <div className="flex">
                           {Array(5)
                             .fill(0)

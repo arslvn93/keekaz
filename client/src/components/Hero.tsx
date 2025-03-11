@@ -14,40 +14,42 @@ export default function Hero() {
       {/* Floating real dog photos with different z-indexes */}
       <FloatingRealPhoto 
         position="top-20 left-[10%]" 
-        size="w-28 h-28" 
+        size="w-32 h-32" 
         delay={0.5} 
         zIndex={20} 
-        imageSrc="/images/real-dogs/dog1.jpg" 
+        rotationRange={8}
+        imageSrc="/images/real-dogs/dog2.jpg" 
       />
       <FloatingRealPhoto 
         position="top-40 right-[15%]" 
-        size="w-24 h-24" 
+        size="w-36 h-36" 
         delay={0.2} 
         zIndex={20} 
-        rotationRange={15} 
-        imageSrc="/images/real-dogs/dog2.jpg" 
+        rotationRange={12} 
+        imageSrc="/images/real-dogs/dog3.jpg" 
       />
       <FloatingRealPhoto 
         position="bottom-28 right-[25%]" 
         size="w-32 h-32" 
         delay={0.8} 
         zIndex={20} 
-        imageSrc="/images/real-dogs/dog3.jpg" 
+        imageSrc="/images/real-dogs/dog4.jpg" 
       />
       <FloatingRealPhoto 
         position="bottom-36 left-[18%]" 
         size="w-28 h-28" 
         delay={0.4} 
         zIndex={20} 
-        rotationRange={12} 
-        imageSrc="/images/real-dogs/dog4.jpg" 
+        rotationRange={10} 
+        imageSrc="/images/real-dogs/dog5.jpg" 
       />
       <FloatingRealPhoto 
         position="top-32 left-[5%]" 
-        size="w-20 h-20" 
+        size="w-24 h-24" 
         delay={0.7} 
-        zIndex={20} 
-        imageSrc="/images/real-dogs/dog5.jpg" 
+        zIndex={20}
+        rotationRange={15}
+        imageSrc="/images/real-dogs/dog1.jpg" 
       />
 
       <div className="container mx-auto px-4 relative z-30">
@@ -110,13 +112,15 @@ export default function Hero() {
               <div className="card-3d relative">
                 <div className="relative rounded-3xl shadow-2xl max-w-full z-10 bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 h-[400px] flex items-center justify-center overflow-hidden">
                   <img 
-                    src="/images/real-dogs/dog6.jpg" 
-                    alt="Happy dog with AI subscription box" 
+                    src="/images/real-dogs/dog1.jpg" 
+                    alt="Happy golden retriever dog" 
                     className="absolute inset-0 w-full h-full object-cover opacity-80"
                     onError={(e) => {
                       // If image fails to load, set background color instead
                       e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement.classList.add('bg-gradient-to-r', 'from-purple-400', 'to-pink-300');
+                      if (e.currentTarget.parentElement) {
+                        e.currentTarget.parentElement.classList.add('bg-gradient-to-r', 'from-purple-400', 'to-pink-300');
+                      }
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-primary/20"></div>
