@@ -131,13 +131,10 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <FloatingElement
-                  position="-top-4 -left-8"
-                  animationDelay={0}
-                  className="bg-gray-700/90 rounded-xl shadow-lg p-2 px-4 animate-float-slow z-20 relative"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center">
+                {/* Pills positioned exactly like in the screenshot */}
+                <div className="absolute -left-4 bottom-32 z-20">
+                  <div className="bg-gray-700 rounded-full py-1.5 pl-1.5 pr-5 flex items-center">
+                    <div className="w-8 h-8 bg-rose-500 rounded-full flex-shrink-0 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -146,27 +143,23 @@ export default function Hero() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-white h-5 w-5"
+                        className="text-white h-4 w-4"
                       >
                         <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
                         <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
                         <path d="M2 22h20" />
                       </svg>
                     </div>
-                    <div className="text-sm">
-                      <p className="font-bold text-white">Personalized</p>
+                    <div className="ml-2">
+                      <p className="font-bold text-white text-sm">Personalized</p>
                       <p className="text-gray-300 text-xs">5-7 unique items</p>
                     </div>
                   </div>
-                </FloatingElement>
+                </div>
 
-                <FloatingElement
-                  position="bottom-0 -right-10"
-                  animationDelay={0.2}
-                  className="bg-gray-700/90 rounded-xl shadow-lg p-2 px-4 animate-float z-20 relative"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-teal-400 rounded-full flex items-center justify-center">
+                <div className="absolute right-6 bottom-3 z-20">
+                  <div className="bg-gray-700 rounded-full py-1.5 pl-1.5 pr-5 flex items-center">
+                    <div className="w-8 h-8 bg-teal-400 rounded-full flex-shrink-0 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -175,18 +168,18 @@ export default function Hero() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-white h-5 w-5"
+                        className="text-white h-4 w-4"
                       >
                         <path d="M12 2a7 7 0 0 1 9 6.5c0 7-10 11.5-9 16.5" />
                         <path d="M12 2a7 7 0 0 0-9 6.5c0 7 10 11.5 9 16.5" />
                       </svg>
                     </div>
-                    <div className="text-sm">
-                      <p className="font-bold text-white">AI-Powered</p>
+                    <div className="ml-2">
+                      <p className="font-bold text-white text-sm">AI-Powered</p>
                       <p className="text-gray-300 text-xs">Learns preferences</p>
                     </div>
                   </div>
-                </FloatingElement>
+                </div>
               </div>
             </motion.div>
 
