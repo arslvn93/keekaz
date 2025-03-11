@@ -47,8 +47,8 @@ export default function Header() {
           } px-6 flex justify-between items-center`}
         >
           <div className="flex items-center">
-            <h1 className={`coni-logo ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300`}>
-              coni
+            <h1 className={`coni-logo ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300 font-bold`}>
+              <span className="coni-logo">coni</span>
             </h1>
           </div>
 

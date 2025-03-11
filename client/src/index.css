@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Spinwerad';
+  src: url('/fonts/Spinwerad.woff2') format('woff2'),
+       url('/fonts/Spinwerad.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.spinwerad-font {
+  font-family: 'Spinwerad', sans-serif;
+}
+
+.coni-logo {
+  font-family: 'Spinwerad', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

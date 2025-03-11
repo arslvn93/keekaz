@@ -154,7 +154,7 @@ export default function WhatsInside() {
                     <div className="md:w-2/3">
                       <Quote className="h-8 w-8 text-primary/20 mb-4" />
                       <p className="text-lg text-gray-700 mb-4">
-                        "Coni always knows exactly what toys my active Dalmatian needs! 
+                        "<span className="coni-logo font-bold">coni</span> always knows exactly what toys my active Dalmatian needs! 
                         The personalized treats and toys are perfect for his high energy 
                         level. It's like they really understand his personality!"
                       </p>
