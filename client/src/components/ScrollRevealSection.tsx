@@ -54,7 +54,7 @@ export default function ScrollRevealSection() {
           <div className="relative h-[500px]">
             {/* Animated elements here */}
             <motion.div 
-              className="absolute top-1/4 left-1/4 z-10"
+              className="absolute top-[10%] left-[10%] z-10"
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: -5 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -66,7 +66,7 @@ export default function ScrollRevealSection() {
             </motion.div>
             
             <motion.div 
-              className="absolute bottom-1/4 right-1/4 z-20"
+              className="absolute bottom-[15%] right-[15%] z-20"
               initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: 5 }}
               transition={{ duration: 0.7, delay: 0.6 }}
@@ -78,7 +78,7 @@ export default function ScrollRevealSection() {
             </motion.div>
             
             <motion.div 
-              className="absolute top-1/2 right-1/3 z-30"
+              className="absolute top-[60%] left-[25%] z-30"
               initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: -3 }}
               transition={{ duration: 0.7, delay: 0.9 }}
