@@ -44,8 +44,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className={`font-medium text-black ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300 
-            font-['Comic_Sans_MS','Bubblegum_Sans',cursive]`}>
+          <h1 className={`coni-logo ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300`}>
             coni
           </h1>
         </div>
@@ -89,7 +88,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden backdrop-blur-xl bg-white/30 shadow-lg absolute w-full left-0 top-full border-b border-white/20"
+            className="md:hidden glass-morphism absolute w-full left-0 top-full"
           >
             <div className="container mx-auto px-4 py-5">
               <div className="flex justify-end mb-4">
@@ -110,7 +109,7 @@ export default function Header() {
                   >
                     <a
                       href={link.href}
-                      className="block py-2 font-medium hover:text-primary transition"
+                      className="block py-2 font-medium hover:text-primary transition-colors duration-300"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.label}

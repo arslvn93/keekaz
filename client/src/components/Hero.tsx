@@ -116,8 +116,8 @@ export default function Hero() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-primary/20"></div>
                   
-                  <div className="relative z-10 bg-white/80 backdrop-blur-md p-6 rounded-xl shadow-lg max-w-[70%] text-center">
-                    <h3 className="font-bold text-xl mb-2 text-primary">CONI BOX</h3>
+                  <div className="relative z-10 glass-morphism p-6 rounded-xl shadow-lg max-w-[70%] text-center">
+                    <h3 className="coni-logo text-xl mb-2 text-primary">coni box</h3>
                     <p className="text-gray-700">Personalized monthly box with toys, treats, and wellness products</p>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function Hero() {
                 <FloatingElement
                   position="-top-6 -right-6"
                   animationDelay={0}
-                  className="bg-white rounded-2xl shadow-lg p-3 animate-float-slow"
+                  className="glass-card rounded-2xl p-3 animate-float-slow"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
@@ -153,7 +153,7 @@ export default function Hero() {
                 <FloatingElement
                   position="-bottom-6 -left-6"
                   animationDelay={0.2}
-                  className="bg-white rounded-2xl shadow-lg p-3 animate-float"
+                  className="glass-card rounded-2xl p-3 animate-float"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
