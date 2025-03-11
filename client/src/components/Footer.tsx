@@ -21,10 +21,12 @@ export default function Footer() {
     {
       icon: <Mail className="text-gray-400" />,
       text: "support@coni.ai",
+      hasCoNi: true,
     },
     {
       icon: <Phone className="text-gray-400" />,
       text: "1-800-CONI-PET",
+      hasCoNi: true,
     },
     {
       icon: <MapPin className="text-gray-400" />,
@@ -51,7 +53,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
                 <LucideFootprints className="text-primary" />
               </div>
-              <h3 className="font-medium text-xl font-['Comic_Sans_MS','Bubblegum_Sans',cursive]">coni</h3>
+              <h3 className="font-bold text-xl coni-logo"><span className="coni-logo">coni</span></h3>
             </div>
             <p className="text-gray-400 mb-6">
               The world's first truly personalized dog subscription, powered by
@@ -115,7 +117,15 @@ export default function Footer() {
               {contactInfo.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <span className="mt-1">{item.icon}</span>
-                  <span className="text-gray-400 whitespace-pre-line">{item.text}</span>
+                  <span className="text-gray-400 whitespace-pre-line">
+                    {item.hasCoNi 
+                      ? (
+                          <>
+                            support@<span className="coni-logo font-bold">coni</span>.ai
+                          </>
+                        )
+                      : item.text}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -123,7 +133,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} coni. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} <span className="coni-logo font-bold">coni</span>. All rights reserved.</p>
         </div>
       </div>
     </footer>
