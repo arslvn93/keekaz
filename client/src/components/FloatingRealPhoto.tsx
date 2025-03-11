@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface FloatingRealPhotoProps {
   position: string;  // "top-10 left-10" or similar Tailwind positioning
@@ -17,10 +18,16 @@ export default function FloatingRealPhoto({
   zIndex = 10,
   rotationRange = 5
 }: FloatingRealPhotoProps) {
+  const [imageError, setImageError] = useState(false);
+  
+  // Use a default placeholder color when image fails to load
+  const bgColors = ["bg-purple-300", "bg-pink-300", "bg-blue-300", "bg-teal-300", "bg-amber-300"];
+  const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
+  
   return (
-    <div className={`absolute ${position} z-${zIndex}`}>
+    <div className={`absolute ${position}`} style={{ zIndex }}>
       <motion.div
-        className={`${size} glass-card rounded-full overflow-hidden border-2 border-white shadow-lg`}
+        className={`${size} glass-card rounded-full overflow-hidden border-2 border-white shadow-lg ${imageError ? randomColor : ''}`}
         initial={{ y: 0, rotate: 0 }}
         animate={{ 
           y: [0, -10, 0, -5, 0],
@@ -43,11 +50,19 @@ export default function FloatingRealPhoto({
           }
         }}
       >
-        <img 
-          src={imageSrc}
-          alt="Real dog photo"
-          className="w-full h-full object-cover"
-        />
+        {!imageError && (
+          <img 
+            src={imageSrc}
+            alt="Dog photo"
+            className="w-full h-full object-cover"
+            onError={() => setImageError(true)}
+          />
+        )}
+        {imageError && (
+          <div className="w-full h-full flex items-center justify-center text-white font-bold">
+            coni
+          </div>
+        )}
       </motion.div>
     </div>
   );

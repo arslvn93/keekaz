@@ -113,6 +113,11 @@ export default function Hero() {
                     src="/images/real-dogs/dog6.jpg" 
                     alt="Happy dog with AI subscription box" 
                     className="absolute inset-0 w-full h-full object-cover opacity-80"
+                    onError={(e) => {
+                      // If image fails to load, set background color instead
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.parentElement.classList.add('bg-gradient-to-r', 'from-purple-400', 'to-pink-300');
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-primary/20"></div>
                   

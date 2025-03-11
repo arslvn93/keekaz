@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface FloatingRealDogProps {
   position: string;  // "top-10 left-10" or similar Tailwind positioning
@@ -17,6 +18,12 @@ export default function FloatingRealDog({
   zIndex = 10,
   rotationRange = 10
 }: FloatingRealDogProps) {
+  const [imageError, setImageError] = useState(false);
+  
+  // Use a default placeholder color when image fails to load
+  const bgColors = ["bg-purple-300", "bg-pink-300", "bg-blue-300", "bg-teal-300", "bg-amber-300"];
+  const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
+  
   return (
     <motion.div
       className={`absolute ${position} flex items-center justify-center`}
@@ -51,13 +58,21 @@ export default function FloatingRealDog({
         transition: { duration: 0.3 }
       }}
     >
-      <div className="relative">
-        <img 
-          src={imageSrc} 
-          alt="Cute dog" 
-          className={`${size} object-contain rounded-full shadow-xl`}
-          style={{ filter: "drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.3))" }}
-        />
+      <div className={`relative ${size} rounded-full shadow-xl overflow-hidden ${imageError ? randomColor : ''}`}>
+        {!imageError && (
+          <img 
+            src={imageSrc} 
+            alt="Cute dog" 
+            className="w-full h-full object-cover"
+            style={{ filter: "drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.3))" }}
+            onError={() => setImageError(true)}
+          />
+        )}
+        {imageError && (
+          <div className="w-full h-full flex items-center justify-center text-white font-bold">
+            coni
+          </div>
+        )}
       </div>
     </motion.div>
   );

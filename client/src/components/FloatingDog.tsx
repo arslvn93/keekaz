@@ -17,6 +17,11 @@ export default function FloatingDog({
   rotationRange = 5
 }: FloatingDogProps) {
   const [dogSvg, setDogSvg] = useState(1);
+  const [imageError, setImageError] = useState(false);
+  
+  // Use a default placeholder color when image fails to load
+  const bgColors = ["bg-purple-300", "bg-pink-300", "bg-blue-300", "bg-teal-300", "bg-amber-300"];
+  const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
   
   useEffect(() => {
     // Randomly select one of the dogs (1-5)
@@ -24,9 +29,9 @@ export default function FloatingDog({
   }, []);
 
   return (
-    <div className={`absolute ${position} z-${zIndex}`}>
+    <div className={`absolute ${position}`} style={{ zIndex }}>
       <motion.div
-        className={`${size} glass-card flex items-center justify-center p-2 rounded-full overflow-hidden`}
+        className={`${size} glass-card flex items-center justify-center p-2 rounded-full overflow-hidden ${imageError ? randomColor : ''}`}
         initial={{ y: 0, rotate: 0 }}
         animate={{ 
           y: [0, -10, 0, -5, 0],
@@ -49,11 +54,19 @@ export default function FloatingDog({
           }
         }}
       >
-        <img 
-          src={`/images/dogs/dog${dogSvg}.svg`}
-          alt="Floating dog"
-          className="w-full h-full object-contain"
-        />
+        {!imageError && (
+          <img 
+            src={`/images/dogs/dog${dogSvg}.svg`}
+            alt="Floating dog"
+            className="w-full h-full object-contain"
+            onError={() => setImageError(true)}
+          />
+        )}
+        {imageError && (
+          <div className="w-full h-full flex items-center justify-center text-white font-bold">
+            coni
+          </div>
+        )}
       </motion.div>
     </div>
   );
