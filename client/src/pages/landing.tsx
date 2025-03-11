@@ -36,18 +36,19 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
-      <Header />
+      <Header onStartClick={openQuestionnaire} />
       <main>
-        <Hero />
-        <ScrollRevealSection />
+        <Hero onStartClick={openQuestionnaire} />
+        <ScrollRevealSection onStartClick={openQuestionnaire} />
+        <StorytellingSection onStartClick={openQuestionnaire} />
         <HowItWorks />
         <WhatsInside />
         <HoveringDogs />
         <LifeStages />
         <AIAssistant />
         <Brands />
-        <Pricing />
-        <CTASection />
+        <Pricing onStartClick={openQuestionnaire} />
+        <CTASection onStartClick={openQuestionnaire} />
         
         {/* Questionnaire Modal */}
         {isQuestionnaireOpen && (
