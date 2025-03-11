@@ -7,7 +7,7 @@ import TextReveal from "./TextReveal";
 
 export default function Hero() {
   return (
-    <section className="pt-32 pb-20 relative overflow-hidden">
+    <section className="pt-44 pb-20 relative overflow-hidden">
       <div className="hero-blob top-0 left-0"></div>
       <div className="hero-blob bottom-0 right-0"></div>
       
@@ -43,14 +43,14 @@ export default function Hero() {
         imageSrc="/images/real-dogs/dog4.jpg" 
       />
       <FloatingRealPhoto 
-        position="top-32 left-[30%]" 
+        position="top-32 left-[5%]" 
         size="w-20 h-20" 
         delay={0.7} 
         zIndex={20} 
         imageSrc="/images/real-dogs/dog5.jpg" 
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-30">
         <div className="flex flex-col lg:flex-row items-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
