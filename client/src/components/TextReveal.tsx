@@ -74,7 +74,7 @@ export default function TextReveal({
   // For single line
   if (!multiLine) {
     return (
-      <motion.div ref={ref} className={`${className} overflow-hidden`}>
+      <motion.div ref={ref} className={`${className} overflow-hidden relative`}>
         <motion.div
           initial={{ y: "100%" }}
           animate={isInView ? { y: 0 } : { y: "100%" }}
@@ -105,7 +105,7 @@ export default function TextReveal({
   return (
     <motion.div 
       ref={ref} 
-      className={`${className}`}
+      className={`${className} relative`}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

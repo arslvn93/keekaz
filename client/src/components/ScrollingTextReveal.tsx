@@ -113,7 +113,7 @@ export default function ScrollingTextReveal({
     return (
       <motion.div 
         ref={containerRef} 
-        className={`${containerStyle} overflow-hidden ${className}`}
+        className={`${containerStyle} overflow-hidden relative ${className}`}
         style={sticky ? {} : { opacity, y }}
       >
         <motion.div
@@ -151,7 +151,7 @@ export default function ScrollingTextReveal({
   return (
     <motion.div 
       ref={containerRef}
-      className={`${containerStyle} ${className}`}
+      className={`${containerStyle} relative ${className}`}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
