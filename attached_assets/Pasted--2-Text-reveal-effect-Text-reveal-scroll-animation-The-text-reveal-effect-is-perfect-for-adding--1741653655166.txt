@@ -1,0 +1,95 @@
+
+2. Text reveal effect
+
+Text reveal scroll animation.
+
+The text reveal effect is perfect for adding a dynamic storytelling vibe to your designs. It leverages components with multiple variants to highlight different parts of the text as you scroll.
+
+Sticky positioning keeps the component visible while scroll variants—triggered within scroll sections—swap the active variant of the text.
+
+Reveal this text effect →
+
+(Psst…here’s the tutorial on adding this effect)
+
+3. Zoom scroll effect
+
+Zoom scroll effect.
+
+Inspired by Natascha Vavrina’s website, the zoom scroll effect is a playground of Framer’s endless capabilities. This resource combines scroll transforms, scroll sections, and scroll variants to create a mesmerizing zoom effect that captures attention instantly.
+
+Take a closer look →
+
+4. Scroll media component
+
+Scroll media component.
+
+Once placed on the canvas, you can upload images or videos directly from the properties panel.
+
+You’ll find options to adjust the component’s “Length,” determining the scroll duration needed to reach the final frame. Whether you’re working with images or videos, this component is customizable to suit your project’s needs.
+
+Use the scroll media component →
+
+(Here’s your how-to for adding this component)
+
+5. Tedy website scroll animation
+
+Tedy website scroll animation.
+
+This is a scroll animation created based on the amazing Tedy website. It combines Framer’s best features, including sticky positioning, scroll transforms, and scroll sections.
+
+By keeping a sticky frame centered in the viewport while animating objects within it, you can create a fluid and immersive scrolling experience.
+
+Learn more about Tedy website scroll animation →
+
+(See how to add this to your project on this tutorial)
+
+6. Ticker scroll component for Framer
+
+Ticker scroll component.
+
+The Ticker scroll component is a game-changer for scroll-based interactions. While it resembles Framer’s built-in ticker component, the magic here is that the frames don’t autoplay with a looping motion. Instead, they react to the user’s scrolling.
+
+A perfect addition to make your website feel dynamic and responsive.
+
+Take it for a spin →
+
+7. Scroll rotation animation
+
+Scroll rotation animation.
+
+The effect is simpler than you might think: containers of logos rotate based on a scroll transform. Starting with opacity and scale at 1, the rotation kicks in as the ‘to’ state is triggered.
+
+Roll over to this resource →
+
+8. Spiral 3D scroll animation
+
+Spiral 3D scroll animation.
+
+The spiral 3D scroll animation is a masterclass in visual storytelling. This animation builds a 3D space using transforms with perspective and rotation. Within this space, five “arms” hold cards that are positioned in a spiral layout, each with unique rotations.
+
+To bring it all together, the spiral structure is placed in a sticky frame for smooth scrolling, and each card features a hover variant for added interactivity.
+
+Explore the resource →
+
+9. Horizontal scrolling effect
+
+Horizontal scrolling effect.
+
+Horizontal scrolling has never been easier to implement than with Framer’s horizontal scrolling effect. By combining sticky positioning and scroll transforms, this effect keeps the section visible while offsetting items on the x-axis as you scroll down.
+
+It’s a clean, straightforward effect that adds a touch of uniqueness to your designs. Perfect for showcasing galleries or side-by-side comparisons.
+
+Take a different view →
+
+10. Mountain parallax effect
+
+Mountain parallax effect.
+
+The mountain parallax effect is an example of how layering can create depth and motion. Using an image from Unsplash, the picture is divided into three layers (foreground, middle ground, and background). Each layer scrolls at a different speed, with the foreground moving fastest and the background the slowest.
+
+Climb into this resource →
+
+Wrapping up
+These resources from Framer University show the incredible range of possibilities Framer offers for scroll animations, particularly for no-code enthusiasts like myself.
+
+These are just my top 10, there’s loads more to explore. ;)

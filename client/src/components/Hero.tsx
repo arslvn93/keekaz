@@ -2,12 +2,19 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingElement from "./FloatingElement";
+import FloatingDog from "./FloatingDog";
+import TextReveal from "./TextReveal";
 
 export default function Hero() {
   return (
     <section className="pt-32 pb-20 relative overflow-hidden">
       <div className="hero-blob top-0 left-0"></div>
       <div className="hero-blob bottom-0 right-0"></div>
+      
+      {/* Floating dogs with different z-indexes so they appear on top */}
+      <FloatingDog position="top-20 left-[10%]" size="w-16 h-16" delay={0.5} zIndex={20} />
+      <FloatingDog position="top-40 right-[15%]" size="w-14 h-14" delay={0.2} zIndex={20} rotationRange={15} />
+      <FloatingDog position="bottom-28 right-[25%]" size="w-20 h-20" delay={0.8} zIndex={20} />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
@@ -21,10 +28,13 @@ export default function Hero() {
               Where <span className="gradient-text">AI</span> Meets <br />
               Canine Care
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg mx-auto lg:mx-0">
-              The world's first truly personalized dog subscription, powered by
-              veterinary science and artificial intelligence.
-            </p>
+            <div className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg mx-auto lg:mx-0 overflow-hidden">
+              <TextReveal 
+                text="The world's first truly personalized dog subscription, powered by veterinary science and artificial intelligence."
+                delay={0.4}
+                highlightWords={["personalized", "artificial", "intelligence"]}
+              />
+            </div>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Button
                 size="lg"
