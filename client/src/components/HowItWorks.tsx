@@ -152,40 +152,7 @@ export default function HowItWorks() {
             </motion.div>
           </div>
 
-          <div>
-            <motion.div
-              ref={solutionsRef}
-              initial={{ opacity: 0, x: 50 }}
-              animate={solutionsInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-primary/5 to-secondary/5 p-8 rounded-3xl shadow-lg border border-gray-100"
-            >
-              <h3 className="font-bold text-2xl mb-6 text-primary">
-                The <span className="coni-logo font-bold">coni</span> Difference
-              </h3>
-              <ul className="space-y-6">
-                {solutionItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={solutionsInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-start gap-4 bg-white/80 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-102"
-                  >
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex-shrink-0 flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-lg">{item.title}</p>
-                      <p className="text-gray-600">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
+          {/* "The coni Difference" section removed as requested */}
         </div>
 
         <motion.div
