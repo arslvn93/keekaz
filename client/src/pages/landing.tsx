@@ -10,6 +10,7 @@ import Pricing from "@/components/Pricing";
 import WhoNeedsTailwag from "@/components/WhoNeedsTailwag";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import HoveringDogs from "@/components/HoveringDogs";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function LandingPage() {
         <Hero />
         <HowItWorks />
         <WhatsInside />
+        <HoveringDogs />
         <LifeStages />
         <AIAssistant />
         <Brands />
