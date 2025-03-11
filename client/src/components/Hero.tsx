@@ -70,9 +70,9 @@ export default function Hero({ onStartClick }: HeroProps = {}) {
             </h1>
             <div className="text-lg md:text-xl text-gray-700 mb-8 max-w-lg mx-auto lg:mx-0 overflow-hidden">
               <TextReveal 
-                text="The world's first truly personalized dog subscription, powered by veterinary science and artificial intelligence."
+                text="WHERE MACHINE LEARNING MEETS CUSTOMIZED DOGGY BAGS"
                 delay={0.4}
-                highlightWords={["personalized", "artificial", "intelligence"]}
+                highlightWords={["MACHINE LEARNING", "CUSTOMIZED"]}
               />
             </div>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
