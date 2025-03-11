@@ -42,16 +42,14 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/">
-          <a className="flex items-center">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
-              <LucideFootprints className="text-white text-xl" />
-            </div>
-            <h1 className="font-bold text-2xl">
-              TAIL<span className="text-primary">WAG</span>™
-            </h1>
-          </a>
-        </Link>
+        <div className="flex items-center">
+          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
+            <LucideFootprints className="text-white text-xl" />
+          </div>
+          <h1 className="font-bold text-2xl">
+            TAIL<span className="text-primary">WAG</span>™
+          </h1>
+        </div>
 
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
