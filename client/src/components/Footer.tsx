@@ -20,11 +20,11 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <Mail className="text-gray-400" />,
-      text: "support@tailwag.ai",
+      text: "support@coni.ai",
     },
     {
       icon: <Phone className="text-gray-400" />,
-      text: "1-800-TAILWAG",
+      text: "1-800-CONI-PET",
     },
     {
       icon: <MapPin className="text-gray-400" />,
@@ -51,7 +51,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
                 <LucideFootprints className="text-primary" />
               </div>
-              <h3 className="font-bold text-xl">TAILWAG™</h3>
+              <h3 className="font-bold text-xl">CONI™</h3>
             </div>
             <p className="text-gray-400 mb-6">
               The world's first truly personalized dog subscription, powered by
@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} TAILWAG™ All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CONI™ All rights reserved.</p>
         </div>
       </div>
     </footer>
