@@ -55,7 +55,7 @@ export default function HoveringDogs() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">every dog is unique</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            just like your furry friend, every coni box is specially crafted to match 
+            just like your furry friend, every <span className="coni-logo font-bold">coni</span> box is specially crafted to match 
             your dog's individual needs and preferences.
           </p>
         </motion.div>
@@ -103,7 +103,7 @@ export default function HoveringDogs() {
               </div>
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
                 <div className="glass-card px-6 py-3 rounded-full shadow-lg">
-                  <p className="coni-logo text-xl">coni loves all dogs</p>
+                  <p className="text-xl"><span className="coni-logo font-bold">coni</span> loves all dogs</p>
                 </div>
               </div>
             </div>

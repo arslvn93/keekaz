@@ -50,7 +50,7 @@ export default function AIAssistant() {
             </div>
 
             <p className="text-gray-700 mb-8">
-              Your TAILWAG box includes unlimited access to our AI Dog
+              Your <span className="coni-logo font-bold">coni</span> box includes unlimited access to our AI Dog
               Assistant:
             </p>
 
@@ -92,7 +92,7 @@ export default function AIAssistant() {
                           <CircuitBoard className="text-white" />
                         </div>
                         <div>
-                          <p className="font-medium">TAILWAG Assistant</p>
+                          <p className="font-medium"><span className="coni-logo font-bold">coni</span> Assistant</p>
                           <p className="text-xs text-gray-500">
                             Always here to help
                           </p>

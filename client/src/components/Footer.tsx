@@ -119,10 +119,17 @@ export default function Footer() {
                   <span className="mt-1">{item.icon}</span>
                   <span className="text-gray-400 whitespace-pre-line">
                     {item.hasCoNi 
-                      ? (
-                          <>
-                            support@<span className="coni-logo font-bold">coni</span>.ai
-                          </>
+                      ? (item.text === "support@coni.ai" 
+                          ? (
+                              <>
+                                support@<span className="coni-logo font-bold">coni</span>.ai
+                              </>
+                            )
+                          : (
+                              <>
+                                1-800-<span className="coni-logo font-bold">CONI</span>-PET
+                              </>
+                            )
                         )
                       : item.text}
                   </span>
