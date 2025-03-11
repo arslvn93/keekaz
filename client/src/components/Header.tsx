@@ -45,7 +45,7 @@ export default function Header() {
         <div className="flex items-center">
           <h1 className={`font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary/70 
             ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300`}>
-            TAILWAG<span className="text-primary font-black">™</span>
+            CONI<span className="text-primary font-black">™</span>
           </h1>
         </div>
 

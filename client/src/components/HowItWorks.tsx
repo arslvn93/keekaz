@@ -67,7 +67,7 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="font-bold text-3xl md:text-4xl mb-4">
-            How TAILWAG Outsmarts The Competition
+            How CONI Outsmarts The Competition
           </h2>
           <div className="text-gray-600 max-w-2xl mx-auto overflow-hidden">
             <TextReveal 
@@ -177,7 +177,7 @@ export default function HowItWorks() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center max-w-[150px]">
                     <div className="text-5xl mb-2">🐾</div>
-                    <p className="font-medium text-primary">TAILWAG Box</p>
+                    <p className="font-medium text-primary">CONI Box</p>
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export default function HowItWorks() {
                 className="absolute -bottom-5 -left-5 bg-primary rounded-xl shadow-lg p-4 animate-float text-white"
               >
                 <p className="text-sm font-medium text-center">
-                  TAILWAG Box 🐾
+                  CONI Box 🐾
                 </p>
               </motion.div>
             </motion.div>
@@ -204,7 +204,7 @@ export default function HowItWorks() {
               className="bg-gray-50 p-8 rounded-3xl shadow-lg"
             >
               <h3 className="font-bold text-xl mb-4 text-primary">
-                The TAILWAG Difference:
+                The CONI Difference:
               </h3>
               <ul className="space-y-4">
                 {solutionItems.map((item, index) => (
@@ -242,7 +242,7 @@ export default function HowItWorks() {
             size="lg"
             className="inline-flex items-center gap-2 hover:shadow-lg transition transform hover:-translate-y-1"
           >
-            See the Science Behind TAILWAG
+            See the Science Behind CONI
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

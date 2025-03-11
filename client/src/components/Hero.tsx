@@ -117,7 +117,7 @@ export default function Hero() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-primary/20"></div>
                   
                   <div className="relative z-10 bg-white/80 backdrop-blur-md p-6 rounded-xl shadow-lg max-w-[70%] text-center">
-                    <h3 className="font-bold text-xl mb-2 text-primary">TAILWAG BOX</h3>
+                    <h3 className="font-bold text-xl mb-2 text-primary">CONI BOX</h3>
                     <p className="text-gray-700">Personalized monthly box with toys, treats, and wellness products</p>
                   </div>
                 </div>
