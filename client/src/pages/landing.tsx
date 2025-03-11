@@ -11,6 +11,7 @@ import WhoNeedsTailwag from "@/components/WhoNeedsTailwag";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import HoveringDogs from "@/components/HoveringDogs";
+import ScrollRevealSection from "@/components/ScrollRevealSection";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function LandingPage() {
       <Header />
       <main>
         <Hero />
+        <ScrollRevealSection />
         <HowItWorks />
         <WhatsInside />
         <HoveringDogs />
