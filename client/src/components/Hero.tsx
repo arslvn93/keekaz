@@ -16,7 +16,7 @@ export default function Hero() {
         position="top-20 left-[10%]" 
         size="w-32 h-32" 
         delay={0.5} 
-        zIndex={20} 
+        zIndex={50} 
         rotationRange={8}
         imageSrc="/images/real-dogs/dog2.jpg" 
       />
@@ -24,7 +24,7 @@ export default function Hero() {
         position="top-40 right-[15%]" 
         size="w-36 h-36" 
         delay={0.2} 
-        zIndex={20} 
+        zIndex={50} 
         rotationRange={12} 
         imageSrc="/images/real-dogs/dog3.jpg" 
       />
@@ -32,14 +32,14 @@ export default function Hero() {
         position="bottom-28 right-[25%]" 
         size="w-32 h-32" 
         delay={0.8} 
-        zIndex={20} 
+        zIndex={50} 
         imageSrc="/images/real-dogs/dog4.jpg" 
       />
       <FloatingRealPhoto 
         position="bottom-36 left-[18%]" 
         size="w-28 h-28" 
         delay={0.4} 
-        zIndex={20} 
+        zIndex={50} 
         rotationRange={10} 
         imageSrc="/images/real-dogs/dog5.jpg" 
       />
@@ -47,7 +47,7 @@ export default function Hero() {
         position="top-32 left-[5%]" 
         size="w-24 h-24" 
         delay={0.7} 
-        zIndex={20}
+        zIndex={50}
         rotationRange={15}
         imageSrc="/images/real-dogs/dog1.jpg" 
       />
