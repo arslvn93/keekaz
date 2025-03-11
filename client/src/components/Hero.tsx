@@ -134,7 +134,7 @@ export default function Hero() {
                 <FloatingElement
                   position="-top-6 -right-6"
                   animationDelay={0}
-                  className="glass-card rounded-2xl p-3 animate-float-slow"
+                  className="glass-card rounded-2xl p-3 animate-float-slow z-20 relative"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
@@ -162,7 +162,7 @@ export default function Hero() {
                 <FloatingElement
                   position="-bottom-6 -left-6"
                   animationDelay={0.2}
-                  className="glass-card rounded-2xl p-3 animate-float"
+                  className="glass-card rounded-2xl p-3 animate-float z-20 relative"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
