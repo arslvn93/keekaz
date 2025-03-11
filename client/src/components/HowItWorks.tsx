@@ -186,7 +186,7 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute -top-5 -right-5 bg-blue-600 rounded-xl shadow-lg p-4 animate-float text-white z-10"
+                className="absolute -top-12 -right-5 bg-blue-600 rounded-xl shadow-lg p-3 animate-float text-white z-20"
               >
                 <p className="text-sm font-medium text-center">
                   AI Powered 🧠
@@ -197,7 +197,7 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute -top-5 left-5 bg-green-600 rounded-xl shadow-lg p-4 animate-float text-white z-10"
+                className="absolute -top-12 -left-5 bg-green-600 rounded-xl shadow-lg p-3 animate-float text-white z-20"
               >
                 <p className="text-sm font-medium text-center">
                   Personalized 🎯

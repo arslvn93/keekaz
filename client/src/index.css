@@ -101,6 +101,10 @@
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
+  
+  .glass-card {
+    @apply bg-gray-800 bg-opacity-40 backdrop-filter backdrop-blur-md border border-gray-700 shadow-xl text-white;
+  }
 
   .blob {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
