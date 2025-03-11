@@ -41,7 +41,7 @@ export default function TextReveal({
     return highlightWords.includes(cleanWord);
   };
 
-  // Animation variants
+  // Animation variants with enhanced dramatic effect
   const containerVariants: Variants = {
     hidden: {},
     visible: {
@@ -54,15 +54,19 @@ export default function TextReveal({
 
   const lineVariants: Variants = {
     hidden: {
-      y: 50,
-      opacity: 0
+      y: 100, // Larger y distance for more dramatic movement
+      opacity: 0,
+      scale: 0.95, // Slight scale effect for depth
+      rotate: -1 // Slight rotation for dynamic feel
     },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
+      rotate: 0,
       transition: {
-        duration,
-        ease: "easeInOut"
+        duration, // Uses the duration passed in props
+        ease: [0.25, 0.1, 0.25, 1.0], // Cubic bezier curve for smoother animation
       }
     }
   };

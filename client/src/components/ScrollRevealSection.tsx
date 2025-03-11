@@ -5,21 +5,18 @@ import TextReveal from "./TextReveal";
 
 export default function ScrollRevealSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.1 }); // Reduced threshold to start earlier
   
+  // Simplified text for larger reveal with more impact
   const multiLineText = `your dog is unique.
-  their box should be too.
-  personalized care
-  for your best friend.
-  intelligent selection
-  just for them.`;
+  their box should be too.`;
 
-  const highlightWords = ["unique", "personalized", "intelligent"];
+  const highlightWords = ["unique"];
 
   return (
     <section 
       ref={ref} 
-      className="py-24 relative overflow-hidden bg-black text-white"
+      className="py-40 relative overflow-hidden bg-black text-white"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
       
@@ -29,22 +26,23 @@ export default function ScrollRevealSection() {
           <div className="relative">
             <TextReveal 
               text={multiLineText}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight uppercase tracking-tight"
               highlightWords={highlightWords}
               multiLine={true}
-              staggerChildren={0.15}
+              staggerChildren={0.3}
+              duration={1.2} // Longer animation duration
             />
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, delay: 1.5 }}
-              className="mt-8"
+              transition={{ duration: 0.8, delay: 2.0 }} // Longer delay for after the text reveals
+              className="mt-16" // More space after the much larger text
             >
-              <p className="text-lg text-gray-300 mb-6">
-                coni uses advanced algorithms to understand exactly what your dog needs—right now.
+              <p className="text-2xl text-gray-300 mb-8 max-w-xl"> {/* Larger text to match */}
+                <span className="coni-logo font-bold">coni</span> uses advanced algorithms to understand exactly what your dog needs—right now.
               </p>
-              <button className="glass-card px-8 py-3 rounded-full text-white bg-primary/30 hover:bg-primary/40 transition-all duration-300">
+              <button className="glass-card px-10 py-4 rounded-full text-xl font-semibold text-white bg-primary/30 hover:bg-primary/40 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-glow">
                 Start Your Dog's Journey
               </button>
             </motion.div>
