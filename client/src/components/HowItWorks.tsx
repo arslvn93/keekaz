@@ -67,7 +67,7 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="font-bold text-3xl md:text-4xl mb-4">
-            How CONI Outsmarts The Competition
+            How <span className="coni-logo font-bold">coni</span> Outsmarts The Competition
           </h2>
           <div className="text-gray-600 max-w-2xl mx-auto overflow-hidden">
             <TextReveal 
@@ -177,7 +177,7 @@ export default function HowItWorks() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center max-w-[150px]">
                     <div className="text-5xl mb-2">🐾</div>
-                    <p className="font-medium text-primary">CONI Box</p>
+                    <p className="font-medium text-primary"><span className="coni-logo font-bold">coni</span> Box</p>
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export default function HowItWorks() {
                 className="absolute -bottom-5 -left-5 bg-primary rounded-xl shadow-lg p-4 animate-float text-white"
               >
                 <p className="text-sm font-medium text-center">
-                  CONI Box 🐾
+                  <span className="coni-logo font-bold">coni</span> Box 🐾
                 </p>
               </motion.div>
             </motion.div>
@@ -204,7 +204,7 @@ export default function HowItWorks() {
               className="bg-gray-50 p-8 rounded-3xl shadow-lg"
             >
               <h3 className="font-bold text-xl mb-4 text-primary">
-                The CONI Difference:
+                The <span className="coni-logo font-bold">coni</span> Difference:
               </h3>
               <ul className="space-y-4">
                 {solutionItems.map((item, index) => (

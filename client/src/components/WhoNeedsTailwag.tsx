@@ -58,7 +58,7 @@ export default function WhoNeedsTailwag() {
           className="text-center mb-16"
         >
           <h2 className="font-bold text-3xl md:text-4xl mb-4">
-            Who Needs TAILWAG?
+            Who Needs <span className="coni-logo font-bold">coni</span>?
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Our service is perfect for dog parents who want the very best for

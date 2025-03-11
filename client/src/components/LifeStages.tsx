@@ -210,7 +210,7 @@ export default function LifeStages() {
           className="text-center mb-16"
         >
           <h2 className="font-bold text-3xl md:text-4xl mb-4">
-            Tailored For Every Life Stage
+            <span className="coni-logo font-bold">coni</span> For Every Life Stage
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Our algorithm adapts to your dog's changing needs throughout their
@@ -318,7 +318,7 @@ export default function LifeStages() {
             <Quote className="h-6 w-6 text-primary/20 mb-2" />
             <p className="text-gray-700 mb-4">
               "I have a senior Beagle and a young Shepherd with completely
-              different needs. TAILWAG is the only service that truly
+              different needs. <span className="coni-logo font-bold">coni</span> is the only service that truly
               understands both of them!"
             </p>
             <p className="font-bold">Michael T.</p>
