@@ -62,7 +62,7 @@ export default function WhatsInside() {
         position="top-28 left-[8%]" 
         size="w-28 h-28" 
         delay={0.7} 
-        zIndex={50} 
+        zIndex={20} 
         rotationRange={10} 
         imageSrc="/images/real-dogs/dog2.jpg"
       />
@@ -70,7 +70,7 @@ export default function WhatsInside() {
         position="bottom-40 right-[12%]" 
         size="w-32 h-32" 
         delay={0.3} 
-        zIndex={50}
+        zIndex={20}
         rotationRange={8}
         imageSrc="/images/real-dogs/dog4.jpg"
       />
@@ -78,7 +78,7 @@ export default function WhatsInside() {
         position="top-1/2 right-[5%]" 
         size="w-24 h-24" 
         delay={1.1} 
-        zIndex={50} 
+        zIndex={20} 
         rotationRange={15}
         imageSrc="/images/real-dogs/dog5.jpg"
       />

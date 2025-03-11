@@ -16,7 +16,7 @@ export default function Hero() {
         position="top-20 left-[10%]" 
         size="w-32 h-32" 
         delay={0.5} 
-        zIndex={50} 
+        zIndex={20} 
         rotationRange={8}
         imageSrc="/images/real-dogs/dog2.jpg" 
       />
@@ -24,7 +24,7 @@ export default function Hero() {
         position="top-40 right-[15%]" 
         size="w-36 h-36" 
         delay={0.2} 
-        zIndex={50} 
+        zIndex={20} 
         rotationRange={12} 
         imageSrc="/images/real-dogs/dog3.jpg" 
       />
@@ -32,14 +32,14 @@ export default function Hero() {
         position="bottom-28 right-[25%]" 
         size="w-32 h-32" 
         delay={0.8} 
-        zIndex={50} 
+        zIndex={20} 
         imageSrc="/images/real-dogs/dog4.jpg" 
       />
       <FloatingRealPhoto 
         position="bottom-36 left-[18%]" 
         size="w-28 h-28" 
         delay={0.4} 
-        zIndex={50} 
+        zIndex={20} 
         rotationRange={10} 
         imageSrc="/images/real-dogs/dog5.jpg" 
       />
@@ -47,7 +47,7 @@ export default function Hero() {
         position="top-32 left-[5%]" 
         size="w-24 h-24" 
         delay={0.7} 
-        zIndex={50}
+        zIndex={20}
         rotationRange={15}
         imageSrc="/images/real-dogs/dog1.jpg" 
       />
@@ -131,66 +131,62 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div className="relative z-40">
-                  <FloatingElement
-                    position="-top-6 -right-6"
-                    animationDelay={0}
-                    className="glass-card rounded-2xl p-3 animate-float-slow"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-white h-4 w-4"
-                        >
-                          <path d="M12 2a7 7 0 0 1 9 6.5c0 7-10 11.5-9 16.5" />
-                          <path d="M12 2a7 7 0 0 0-9 6.5c0 7 10 11.5 9 16.5" />
-                        </svg>
-                      </div>
-                      <div className="text-xs">
-                        <p className="font-bold">AI-Powered</p>
-                        <p className="text-gray-500">Learns preferences</p>
-                      </div>
+                <FloatingElement
+                  position="-top-6 -right-6"
+                  animationDelay={0}
+                  className="glass-card rounded-2xl p-3 animate-float-slow"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white h-4 w-4"
+                      >
+                        <path d="M12 2a7 7 0 0 1 9 6.5c0 7-10 11.5-9 16.5" />
+                        <path d="M12 2a7 7 0 0 0-9 6.5c0 7 10 11.5 9 16.5" />
+                      </svg>
                     </div>
-                  </FloatingElement>
-                </div>
+                    <div className="text-xs">
+                      <p className="font-bold">AI-Powered</p>
+                      <p className="text-gray-500">Learns preferences</p>
+                    </div>
+                  </div>
+                </FloatingElement>
 
-                <div className="relative z-40">
-                  <FloatingElement
-                    position="-bottom-6 -left-6"
-                    animationDelay={0.2}
-                    className="glass-card rounded-2xl p-3 animate-float"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-white h-4 w-4"
-                        >
-                          <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
-                          <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
-                          <path d="M2 22h20" />
-                        </svg>
-                      </div>
-                      <div className="text-xs">
-                        <p className="font-bold">Personalized</p>
-                        <p className="text-gray-500">5-7 unique items</p>
-                      </div>
+                <FloatingElement
+                  position="-bottom-6 -left-6"
+                  animationDelay={0.2}
+                  className="glass-card rounded-2xl p-3 animate-float"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white h-4 w-4"
+                      >
+                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                        <path d="M2 22h20" />
+                      </svg>
                     </div>
-                  </FloatingElement>
-                </div>
+                    <div className="text-xs">
+                      <p className="font-bold">Personalized</p>
+                      <p className="text-gray-500">5-7 unique items</p>
+                    </div>
+                  </div>
+                </FloatingElement>
               </div>
             </motion.div>
 
