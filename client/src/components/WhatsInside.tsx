@@ -145,13 +145,13 @@ export default function WhatsInside() {
             </div>
           </div>
           
-          <h2 className="font-bold text-3xl md:text-5xl mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            What's In Your Dog's <span className="relative">
+          <h2 className="font-bold text-3xl md:text-5xl mb-6 tracking-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">What's In Your Dog's</span> <span className="relative text-rose-500">
               Perfect 
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 12" preserveAspectRatio="none">
                 <path d="M0,0 Q50,12 100,0" fill="none" stroke="currentColor" strokeWidth="3" className="text-accent/40" />
               </svg>
-            </span> Box?
+            </span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Box?</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
