@@ -62,7 +62,7 @@ export default function TextReveal({
       opacity: 1,
       transition: {
         duration,
-        ease: [0.6, 0.05, -0.01, 0.9]
+        ease: "easeInOut"
       }
     }
   };
@@ -77,7 +77,7 @@ export default function TextReveal({
           transition={{
             duration,
             delay,
-            ease: [0.6, 0.05, -0.01, 0.9], // Custom easing for smooth reveal
+            ease: "easeInOut" // Custom easing for smooth reveal
           }}
         >
           <span className="inline-block">
