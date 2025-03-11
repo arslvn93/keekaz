@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { X, Brain, BarChart, TrendingUp, RefreshCw } from "lucide-react";
 import TextReveal from "./TextReveal";
-import FloatingRealDog from "./FloatingRealDog";
+import FloatingRealPhoto from "./FloatingRealPhoto";
 
 export default function HowItWorks() {
   const [problemsRef, problemsInView] = useScrollAnimation(0.1);
@@ -42,21 +42,21 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="py-20 bg-white relative overflow-hidden">
-      {/* Add floating real dogs to this section too */}
-      <FloatingRealDog 
+      {/* Add floating real dog photos to this section too */}
+      <FloatingRealPhoto 
         position="top-32 right-[7%]" 
-        size="w-22 h-22" 
+        size="w-28 h-28" 
         delay={0.9} 
         zIndex={20} 
-        imageSrc="/images/dogs/dog3.svg" 
+        imageSrc="/images/real-dogs/dog3.jpg" 
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="bottom-20 left-[9%]" 
-        size="w-24 h-24" 
+        size="w-32 h-32" 
         delay={0.4} 
         zIndex={20} 
         rotationRange={15}
-        imageSrc="/images/dogs/dog2.svg" 
+        imageSrc="/images/real-dogs/dog2.jpg" 
       />
       
       <div className="container mx-auto px-4 relative z-10">

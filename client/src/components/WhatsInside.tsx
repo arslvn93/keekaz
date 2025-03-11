@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Gamepad, Bone, Heart, FileText, Quote } from "lucide-react";
-import FloatingRealDog from "./FloatingRealDog";
+import FloatingRealPhoto from "./FloatingRealPhoto";
 
 export default function WhatsInside() {
   const [sectionRef, sectionInView] = useScrollAnimation(0.1);
@@ -57,29 +57,29 @@ export default function WhatsInside() {
 
   return (
     <section id="whats-inside" className="py-20 bg-gray-50 relative overflow-hidden">
-      {/* Floating real dog images */}
-      <FloatingRealDog 
+      {/* Floating real dog photos */}
+      <FloatingRealPhoto 
         position="top-28 left-[8%]" 
-        size="w-20 h-20" 
+        size="w-24 h-24" 
         delay={0.7} 
         zIndex={20} 
         rotationRange={10} 
-        imageSrc="/images/dogs/dog1.svg"
+        imageSrc="/images/real-dogs/dog1.jpg"
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="bottom-40 right-[12%]" 
-        size="w-24 h-24" 
+        size="w-28 h-28" 
         delay={0.3} 
         zIndex={20}
-        imageSrc="/images/dogs/dog4.svg"
+        imageSrc="/images/real-dogs/dog4.jpg"
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="top-1/2 right-[5%]" 
-        size="w-18 h-18" 
+        size="w-20 h-20" 
         delay={1.1} 
         zIndex={20} 
         rotationRange={20}
-        imageSrc="/images/dogs/dog5.svg"
+        imageSrc="/images/real-dogs/dog5.jpg"
       />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -135,18 +135,12 @@ export default function WhatsInside() {
                 <div className="bg-white rounded-3xl shadow-xl p-10 max-w-3xl">
                   <div className="flex flex-col md:flex-row gap-8 items-center">
                     <div className="md:w-1/3">
-                      <div className="w-48 h-48 rounded-full border-4 border-primary mx-auto bg-primary/10 flex items-center justify-center">
-                        <svg
-                          viewBox="0 0 200 200"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="w-32 h-32 text-primary"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M38.5,-66.2C46.9,-54.3,48.9,-38.8,54.9,-24.7C60.9,-10.7,70.8,1.9,71.7,15.3C72.5,28.8,64.2,43.1,52.5,53.9C40.8,64.7,25.6,72,8.2,78.1C-9.1,84.1,-28.6,88.9,-45.5,83C-62.4,77.1,-76.7,60.6,-79.3,42.5C-81.9,24.4,-72.9,4.7,-69.6,-17.4C-66.4,-39.6,-68.9,-64.1,-58.5,-76.1C-48.1,-88,-24.1,-87.2,-4.4,-81.5C15.3,-75.8,30.2,-78.1,38.5,-66.2Z"
-                            transform="translate(100 100)"
-                          />
-                        </svg>
+                      <div className="w-48 h-48 rounded-full border-4 border-primary mx-auto bg-primary/10 flex items-center justify-center overflow-hidden">
+                        <img 
+                          src="/images/real-dogs/dog3.jpg" 
+                          alt="Lab dog" 
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                     <div className="md:w-2/3">

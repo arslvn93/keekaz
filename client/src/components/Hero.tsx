@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingElement from "./FloatingElement";
-import FloatingDog from "./FloatingDog";
-import FloatingRealDog from "./FloatingRealDog";
+import FloatingRealPhoto from "./FloatingRealPhoto";
 import TextReveal from "./TextReveal";
 
 export default function Hero() {
@@ -12,43 +11,43 @@ export default function Hero() {
       <div className="hero-blob top-0 left-0"></div>
       <div className="hero-blob bottom-0 right-0"></div>
       
-      {/* Floating real dog SVGs with different z-indexes so they appear on top */}
-      <FloatingRealDog 
+      {/* Floating real dog photos with different z-indexes */}
+      <FloatingRealPhoto 
         position="top-20 left-[10%]" 
-        size="w-24 h-24" 
+        size="w-28 h-28" 
         delay={0.5} 
         zIndex={20} 
-        imageSrc="/images/dogs/dog1.svg" 
+        imageSrc="/images/real-dogs/dog1.jpg" 
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="top-40 right-[15%]" 
-        size="w-20 h-20" 
+        size="w-24 h-24" 
         delay={0.2} 
         zIndex={20} 
         rotationRange={15} 
-        imageSrc="/images/dogs/dog2.svg" 
+        imageSrc="/images/real-dogs/dog2.jpg" 
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="bottom-28 right-[25%]" 
-        size="w-28 h-28" 
+        size="w-32 h-32" 
         delay={0.8} 
         zIndex={20} 
-        imageSrc="/images/dogs/dog3.svg" 
+        imageSrc="/images/real-dogs/dog3.jpg" 
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="bottom-36 left-[18%]" 
-        size="w-24 h-24" 
+        size="w-28 h-28" 
         delay={0.4} 
         zIndex={20} 
         rotationRange={12} 
-        imageSrc="/images/dogs/dog4.svg" 
+        imageSrc="/images/real-dogs/dog4.jpg" 
       />
-      <FloatingRealDog 
+      <FloatingRealPhoto 
         position="top-32 left-[30%]" 
-        size="w-16 h-16" 
+        size="w-20 h-20" 
         delay={0.7} 
         zIndex={20} 
-        imageSrc="/images/dogs/dog5.svg" 
+        imageSrc="/images/real-dogs/dog5.jpg" 
       />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -109,39 +108,18 @@ export default function Hero() {
               className="scene relative"
             >
               <div className="card-3d relative">
-                <div className="relative rounded-3xl shadow-2xl max-w-full z-10 bg-cyan-100 h-[400px] flex items-center justify-center overflow-hidden">
-                  <svg
-                    viewBox="0 0 200 200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-24 h-24 text-primary"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M40.5,65.5c-3.3,5.5-4.1,12.4-9.8,15.3c-5.7,2.9-16.4,1.9-20.4-3.2C6.3,71.6,8.9,62.3,7.9,51.2S3.1,29.9,10.5,22.7c7.4-7.2,21.5-8.4,29.9-3.2c8.4,5.2,11.2,17,17.8,26.6C64.7,55.7,75.1,63.2,73,67.8C70.9,72.4,43.8,60,40.5,65.5z"
-                    />
-                  </svg>
-                  <svg
-                    viewBox="0 0 200 200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-56 h-56 text-secondary absolute -bottom-10 -right-10 opacity-40"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M47.5,-67.2C55.9,-59.3,53.2,-37.9,56.8,-20.1C60.5,-2.3,70.6,11.8,70.5,26C70.3,40.2,60,54.6,45.9,62.5C31.8,70.4,15.9,71.8,-0.2,72.2C-16.4,72.5,-32.7,71.7,-42.8,63.3C-52.9,54.9,-56.7,38.9,-63.8,22.7C-70.9,6.5,-81.4,-9.9,-78.1,-23C-74.9,-36,-57.9,-45.6,-42.2,-52.1C-26.6,-58.6,-13.3,-61.9,3.2,-66.4C19.6,-70.9,39.2,-75.1,47.5,-67.2Z"
-                      transform="translate(100 100)"
-                    />
-                  </svg>
-                  <svg
-                    viewBox="0 0 200 200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-56 h-56 text-accent absolute -top-10 -left-10 opacity-40"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M42.8,-62.2C53.9,-53.3,60.5,-38.8,65.2,-23.7C69.9,-8.6,72.8,7,68.8,20.2C64.8,33.5,53.9,44.4,41.2,53.5C28.5,62.7,14.2,70,1.2,68.3C-11.8,66.6,-23.7,55.9,-36.6,46.2C-49.5,36.5,-63.5,27.9,-70.2,14.8C-76.8,1.8,-76.1,-15.7,-69.4,-30.5C-62.7,-45.2,-50,-57.3,-36.3,-65.2C-22.6,-73.1,-7.9,-76.9,4.5,-83.1C16.9,-89.3,31.8,-71.1,42.8,-62.2Z"
-                      transform="translate(100 100)"
-                    />
-                  </svg>
+                <div className="relative rounded-3xl shadow-2xl max-w-full z-10 bg-gradient-to-br from-cyan-100 via-cyan-50 to-blue-100 h-[400px] flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="/images/real-dogs/dog6.jpg" 
+                    alt="Happy dog with AI subscription box" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-primary/20"></div>
+                  
+                  <div className="relative z-10 bg-white/80 backdrop-blur-md p-6 rounded-xl shadow-lg max-w-[70%] text-center">
+                    <h3 className="font-bold text-xl mb-2 text-primary">TAILWAG BOX</h3>
+                    <p className="text-gray-700">Personalized monthly box with toys, treats, and wellness products</p>
+                  </div>
                 </div>
 
                 <FloatingElement
