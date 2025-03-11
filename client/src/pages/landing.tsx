@@ -10,6 +10,7 @@ import Pricing from "@/components/Pricing";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import HoveringDogs from "@/components/HoveringDogs";
+import ScrollRevealSection from "@/components/ScrollRevealSection";
 import StorytellingSection from "@/components/StorytellingSection";
 import PuppyQuestionnaire from "../components/PuppyQuestionnaire";
 
@@ -38,6 +39,7 @@ export default function LandingPage() {
       <Header onStartClick={openQuestionnaire} />
       <main>
         <Hero onStartClick={openQuestionnaire} />
+        <ScrollRevealSection onStartClick={openQuestionnaire} />
         <StorytellingSection onStartClick={openQuestionnaire} />
         <HowItWorks />
         <WhatsInside />
