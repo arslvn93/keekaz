@@ -242,7 +242,7 @@ export default function HowItWorks() {
             size="lg"
             className="inline-flex items-center gap-2 hover:shadow-lg transition transform hover:-translate-y-1"
           >
-            See the Science Behind CONI
+            See the Science Behind <span className="coni-logo font-bold">coni</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
