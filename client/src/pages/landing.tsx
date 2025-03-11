@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import WhatsInside from "@/components/WhatsInside";
 import LifeStages from "@/components/LifeStages";
 import AIAssistant from "@/components/AIAssistant";
-import Brands from "@/components/Brands";
+
 import Pricing from "@/components/Pricing";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -42,7 +42,6 @@ export default function LandingPage() {
         <WhatsInside />
         <LifeStages />
         <AIAssistant />
-        <Brands />
         <Pricing onStartClick={openQuestionnaire} />
         <CTASection onStartClick={openQuestionnaire} />
         
