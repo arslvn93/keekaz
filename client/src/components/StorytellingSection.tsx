@@ -26,23 +26,24 @@ export default function StorytellingSection({ onStartClick }: StorytelingSection
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[200vh] py-20 overflow-hidden bg-gradient-to-b from-gray-900 to-black text-white"
+      className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-900 to-black text-white"
+      style={{ minHeight: "150vh" }}
     >
-      {/* Sticky container */}
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      {/* Fixed height container instead of sticky */}
+      <div className="h-auto py-24 md:py-32 flex items-center justify-center overflow-visible">
         {/* Content container */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text content */}
             <div className="space-y-24 py-12">
               {/* First text reveal */}
-              <div>
+              <div className="relative">
                 <ScrollingTextReveal
                   text="Every dog is unique."
                   className="text-5xl sm:text-6xl font-bold mb-8"
                   highlightWords={["unique"]}
                   multiLine={false}
-                  threshold={0.5}
+                  threshold={0.3}
                   staggerChildren={0.08}
                   duration={0.8}
                 />
@@ -51,6 +52,7 @@ export default function StorytellingSection({ onStartClick }: StorytelingSection
                   text="Their needs change over time."
                   className="text-3xl sm:text-4xl font-medium text-gray-300 mb-12"
                   delay={0.3}
+                  threshold={0.3}
                   duration={0.8}
                 />
                 
@@ -69,13 +71,13 @@ export default function StorytellingSection({ onStartClick }: StorytelingSection
               </div>
               
               {/* Second text reveal */}
-              <div>
+              <div className="relative mt-40">
                 <ScrollingTextReveal
                   text="A subscription that evolves"
                   className="text-4xl sm:text-5xl font-bold mb-8"
                   highlightWords={["evolves"]}
                   multiLine={false}
-                  threshold={0.5}
+                  threshold={0.3}
                   staggerChildren={0.08}
                   duration={0.8}
                 />
@@ -84,6 +86,7 @@ export default function StorytellingSection({ onStartClick }: StorytelingSection
                   text="as your best friend grows."
                   className="text-3xl sm:text-4xl font-medium text-gray-300 mb-12"
                   delay={0.3}
+                  threshold={0.3}
                   duration={0.8}
                 />
                 
@@ -109,7 +112,7 @@ export default function StorytellingSection({ onStartClick }: StorytelingSection
             </div>
             
             {/* Right side - Floating images with parallax effect */}
-            <div className="relative h-[600px] hidden lg:block">
+            <div className="relative h-[800px] hidden lg:block">
               {/* Background layer */}
               <motion.div style={{ y: backgroundY }} className="absolute inset-0">
                 <FloatingRealPhoto

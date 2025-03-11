@@ -9,7 +9,7 @@ interface ScrollRevealSectionProps {
 
 export default function ScrollRevealSection({ onStartClick }: ScrollRevealSectionProps = {}) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.1 }); // Reduced threshold to start earlier
+  const isInView = useInView(ref, { once: false, amount: 0.15, margin: "0px 0px -100px 0px" }); // Improved threshold with margin
   
   // Simplified text for larger reveal with more impact
   const multiLineText = `your dog is unique.

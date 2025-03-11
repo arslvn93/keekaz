@@ -21,7 +21,7 @@ export default function TextReveal({
   staggerChildren = 0.1,
 }: TextRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.2, margin: "0px 0px -100px 0px" });
   const [lines, setLines] = useState<string[]>([]);
 
   useEffect(() => {

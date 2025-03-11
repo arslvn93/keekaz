@@ -26,7 +26,7 @@ export default function ScrollingTextReveal({
 }: ScrollingTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(textRef, { once: false, amount: threshold });
+  const isInView = useInView(textRef, { once: false, amount: threshold, margin: "0px 0px -100px 0px" });
   const [lines, setLines] = useState<string[]>([]);
 
   // For scroll-based animations
@@ -35,9 +35,9 @@ export default function ScrollingTextReveal({
     offset: ["start end", "end start"]
   });
 
-  // Map scrollYProgress to opacity and y position
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [100, 0, 0, -100]);
+  // More gradual fade and position change for better visibility
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [80, 0, 0, -80]);
 
   useEffect(() => {
     if (multiLine) {
