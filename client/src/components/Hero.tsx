@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingElement from "./FloatingElement";
 import FloatingDog from "./FloatingDog";
+import FloatingRealDog from "./FloatingRealDog";
 import TextReveal from "./TextReveal";
 
 export default function Hero() {
@@ -11,10 +12,44 @@ export default function Hero() {
       <div className="hero-blob top-0 left-0"></div>
       <div className="hero-blob bottom-0 right-0"></div>
       
-      {/* Floating dogs with different z-indexes so they appear on top */}
-      <FloatingDog position="top-20 left-[10%]" size="w-16 h-16" delay={0.5} zIndex={20} />
-      <FloatingDog position="top-40 right-[15%]" size="w-14 h-14" delay={0.2} zIndex={20} rotationRange={15} />
-      <FloatingDog position="bottom-28 right-[25%]" size="w-20 h-20" delay={0.8} zIndex={20} />
+      {/* Floating real dog SVGs with different z-indexes so they appear on top */}
+      <FloatingRealDog 
+        position="top-20 left-[10%]" 
+        size="w-24 h-24" 
+        delay={0.5} 
+        zIndex={20} 
+        imageSrc="/images/dogs/dog1.svg" 
+      />
+      <FloatingRealDog 
+        position="top-40 right-[15%]" 
+        size="w-20 h-20" 
+        delay={0.2} 
+        zIndex={20} 
+        rotationRange={15} 
+        imageSrc="/images/dogs/dog2.svg" 
+      />
+      <FloatingRealDog 
+        position="bottom-28 right-[25%]" 
+        size="w-28 h-28" 
+        delay={0.8} 
+        zIndex={20} 
+        imageSrc="/images/dogs/dog3.svg" 
+      />
+      <FloatingRealDog 
+        position="bottom-36 left-[18%]" 
+        size="w-24 h-24" 
+        delay={0.4} 
+        zIndex={20} 
+        rotationRange={12} 
+        imageSrc="/images/dogs/dog4.svg" 
+      />
+      <FloatingRealDog 
+        position="top-32 left-[30%]" 
+        size="w-16 h-16" 
+        delay={0.7} 
+        zIndex={20} 
+        imageSrc="/images/dogs/dog5.svg" 
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center">

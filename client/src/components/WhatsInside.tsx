@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Gamepad, Bone, Heart, FileText, Quote } from "lucide-react";
-import FloatingDog from "./FloatingDog";
+import FloatingRealDog from "./FloatingRealDog";
 
 export default function WhatsInside() {
   const [sectionRef, sectionInView] = useScrollAnimation(0.1);
@@ -57,10 +57,30 @@ export default function WhatsInside() {
 
   return (
     <section id="whats-inside" className="py-20 bg-gray-50 relative overflow-hidden">
-      {/* Floating dogs with different positions */}
-      <FloatingDog position="top-28 left-[8%]" size="w-12 h-12" delay={0.7} zIndex={20} rotationRange={10} />
-      <FloatingDog position="bottom-40 right-[12%]" size="w-16 h-16" delay={0.3} zIndex={20} />
-      <FloatingDog position="top-1/2 right-[5%]" size="w-14 h-14" delay={1.1} zIndex={20} rotationRange={20} />
+      {/* Floating real dog images */}
+      <FloatingRealDog 
+        position="top-28 left-[8%]" 
+        size="w-20 h-20" 
+        delay={0.7} 
+        zIndex={20} 
+        rotationRange={10} 
+        imageSrc="/images/dogs/dog1.svg"
+      />
+      <FloatingRealDog 
+        position="bottom-40 right-[12%]" 
+        size="w-24 h-24" 
+        delay={0.3} 
+        zIndex={20}
+        imageSrc="/images/dogs/dog4.svg"
+      />
+      <FloatingRealDog 
+        position="top-1/2 right-[5%]" 
+        size="w-18 h-18" 
+        delay={1.1} 
+        zIndex={20} 
+        rotationRange={20}
+        imageSrc="/images/dogs/dog5.svg"
+      />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
