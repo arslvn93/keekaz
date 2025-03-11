@@ -54,19 +54,19 @@ export default function ScrollRevealSection() {
           <div className="relative h-[500px]">
             {/* Animated elements here */}
             <motion.div 
-              className="absolute top-[10%] left-[10%] z-10"
+              className="absolute top-[5%] left-[3%] z-10"
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: -5 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
               <div className="glass-card p-6 rounded-2xl shadow-lg w-64">
                 <h3 className="text-xl font-bold mb-2">Smart Analysis</h3>
-                <p className="text-gray-300">Our AI analyzes thousands of data points to create a perfect match.</p>
+                <p className="text-gray-100">Our AI analyzes thousands of data points to create a perfect match.</p>
               </div>
             </motion.div>
             
             <motion.div 
-              className="absolute bottom-[20%] right-[20%] z-20"
+              className="absolute bottom-[5%] right-[5%] z-20"
               initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: 5 }}
               transition={{ duration: 0.7, delay: 0.6 }}
@@ -78,7 +78,7 @@ export default function ScrollRevealSection() {
             </motion.div>
             
             <motion.div 
-              className="absolute top-[35%] right-[42%] z-30"
+              className="absolute top-[40%] left-[45%] z-30"
               initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.8, rotate: -3 }}
               transition={{ duration: 0.7, delay: 0.9 }}
