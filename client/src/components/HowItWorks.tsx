@@ -186,9 +186,9 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute -top-5 -right-5 bg-blue-600 rounded-xl shadow-lg p-3 animate-float text-white z-20"
+                className="absolute bottom-10 right-5 bg-blue-600 rounded-lg shadow-md p-2 animate-float text-white z-20"
               >
-                <p className="text-sm font-medium text-center">
+                <p className="text-xs font-medium text-center">
                   AI Powered 🧠
                 </p>
               </motion.div>
@@ -197,9 +197,9 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute -bottom-5 -left-5 bg-green-600 rounded-xl shadow-lg p-3 animate-float text-white z-20"
+                className="absolute -top-8 left-10 bg-green-600 rounded-lg shadow-md p-2 animate-float text-white z-20"
               >
-                <p className="text-sm font-medium text-center">
+                <p className="text-xs font-medium text-center">
                   Personalized 🎯
                 </p>
               </motion.div>
@@ -208,9 +208,9 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute -bottom-5 left-[40%] -translate-x-1/2 bg-primary rounded-xl shadow-lg p-4 animate-float text-white"
+                className="absolute bottom-0 left-[40%] -translate-x-1/2 bg-primary rounded-lg shadow-md p-3 animate-float text-white"
               >
-                <p className="text-sm font-medium text-center">
+                <p className="text-xs font-medium text-center">
                   <span className="coni-logo font-bold">coni</span> Box 🐾
                 </p>
               </motion.div>
