@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
 import WhatsInside from "@/components/WhatsInside";
 import LifeStages from "@/components/LifeStages";
 import AIAssistant from "@/components/AIAssistant";
@@ -41,7 +40,6 @@ export default function LandingPage() {
         <Hero onStartClick={openQuestionnaire} />
         <ScrollRevealSection onStartClick={openQuestionnaire} />
         <StorytellingSection onStartClick={openQuestionnaire} />
-        <HowItWorks />
         <WhatsInside />
         <HoveringDogs />
         <LifeStages />
