@@ -186,29 +186,66 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute bottom-10 right-5 bg-blue-600 rounded-lg shadow-md p-2 animate-float text-white z-20"
+                className="absolute -bottom-6 -right-6 glass-card rounded-2xl p-3 animate-float z-20"
               >
-                <p className="text-xs font-medium text-center">
-                  AI Powered 🧠
-                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-white h-4 w-4"
+                    >
+                      <path d="M12 2a7 7 0 0 1 9 6.5c0 7-10 11.5-9 16.5" />
+                      <path d="M12 2a7 7 0 0 0-9 6.5c0 7 10 11.5 9 16.5" />
+                    </svg>
+                  </div>
+                  <div className="text-xs">
+                    <p className="font-bold">AI-Powered</p>
+                    <p className="text-gray-400">Learns preferences</p>
+                  </div>
+                </div>
               </motion.div>
               
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute -top-8 left-10 bg-green-600 rounded-lg shadow-md p-2 animate-float text-white z-20"
+                className="absolute -top-6 -left-6 glass-card rounded-2xl p-3 animate-float z-20"
               >
-                <p className="text-xs font-medium text-center">
-                  Personalized 🎯
-                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-white h-4 w-4"
+                    >
+                      <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                      <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                      <path d="M2 22h20" />
+                    </svg>
+                  </div>
+                  <div className="text-xs">
+                    <p className="font-bold">Personalized</p>
+                    <p className="text-gray-400">5-7 unique items</p>
+                  </div>
+                </div>
               </motion.div>
               
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute bottom-0 left-[40%] -translate-x-1/2 bg-primary rounded-lg shadow-md p-3 animate-float text-white"
+                className="absolute bottom-0 left-[40%] -translate-x-1/2 bg-primary rounded-xl shadow-md p-3 animate-float text-white"
               >
                 <p className="text-xs font-medium text-center">
                   <span className="coni-logo font-bold">coni</span> Box 🐾
