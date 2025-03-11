@@ -1,6 +1,26 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { X, ChevronRight, ChevronLeft, Check, Dog, Heart, Star, User, Zap, Shield } from "lucide-react";
+
+// Animation variants
+const itemVariants: Variants = {
+  hidden: (i: number) => ({
+    opacity: 0,
+    y: 20,
+    transition: {
+      delay: i * 0.1
+    }
+  }),
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4,
+      ease: "easeOut" 
+    }
+  })
+};
 
 // Question types
 type QuestionType = 
@@ -157,22 +177,7 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({ 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        delay: 0.1 + i * 0.1,
-        duration: 0.4
-      }
-    }),
-    exit: { 
-      opacity: 0,
-      y: -10,
-      transition: { duration: 0.2 }
-    }
-  };
+  // We're using the item variants defined at the top of the file
 
   const icons = {
     breedQuestion: Dog,
@@ -259,13 +264,9 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                   </div>
                 ))}
                 
-                {/* Dog illustration position */}
+                {/* Abstract decoration */}
                 <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-                  <img 
-                    src="/images/fluffy-dog.png" 
-                    alt="Happy dog" 
-                    className="w-3/4 opacity-30"
-                  />
+                  <div className="w-full h-32 bg-gradient-to-t from-purple-200/20 to-transparent"></div>
                 </div>
               </div>
             </div>
@@ -442,25 +443,57 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                             <span className="text-gray-700 dark:text-gray-300 text-sm">Small</span>
                             <span className="text-gray-700 dark:text-gray-300 text-sm">Large</span>
                           </div>
-                          <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                          <div 
+                            className="relative h-8 cursor-pointer" 
+                            onClick={(e) => {
+                              const rect = e.currentTarget.getBoundingClientRect();
+                              const x = e.clientX - rect.left;
+                              const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                              
+                              // Convert percentage back to weight value
+                              const maxWeight = answers.weight.unit === 'lbs' ? 100 : 45;
+                              const newValue = Math.round((percentage / 100) * maxWeight);
+                              updateWeightValue(newValue);
+                            }}
+                          >
+                            <div className="absolute top-3 left-0 right-0 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                              <motion.div 
+                                className="absolute top-0 left-0 bottom-0 bg-primary rounded-full"
+                                style={{ 
+                                  width: `${Math.min(100, (answers.weight.unit === 'lbs' 
+                                    ? Math.max(0, answers.weight.value / 100) * 100 
+                                    : Math.max(0, answers.weight.value / 45) * 100))}%` 
+                                }}
+                              />
+                            </div>
                             <motion.div 
-                              className="absolute top-0 left-0 bottom-0 bg-primary rounded-full"
-                              style={{ 
-                                width: `${Math.min(100, (answers.weight.unit === 'lbs' 
-                                  ? Math.max(0, answers.weight.value / 100) * 100 
-                                  : Math.max(0, answers.weight.value / 45) * 100))}%` 
-                              }}
-                            />
-                            <motion.div 
-                              className="absolute w-4 h-4 bg-white border-2 border-primary rounded-full -top-1 -ml-2"
+                              className="absolute w-6 h-6 bg-white border-2 border-primary rounded-full top-1 -ml-3 shadow-md cursor-grab active:cursor-grabbing"
                               style={{ 
                                 left: `${Math.min(100, (answers.weight.unit === 'lbs' 
                                   ? Math.max(0, answers.weight.value / 100) * 100 
                                   : Math.max(0, answers.weight.value / 45) * 100))}%` 
                               }}
+                              drag="x"
+                              dragConstraints={{ left: 0, right: 0 }}
+                              dragElastic={0}
+                              dragMomentum={false}
+                              onDrag={(e, info) => {
+                                const element = e.currentTarget as HTMLElement;
+                                const parentElement = element.parentElement;
+                                if (!parentElement) return;
+                                
+                                const rect = parentElement.getBoundingClientRect();
+                                const x = info.point.x - rect.left;
+                                const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                                
+                                // Convert percentage back to weight value
+                                const maxWeight = answers.weight.unit === 'lbs' ? 100 : 45;
+                                const newValue = Math.round((percentage / 100) * maxWeight);
+                                updateWeightValue(newValue);
+                              }}
                             />
                           </div>
-                          <div className="flex justify-between mt-2">
+                          <div className="flex justify-between mt-4">
                             <span className="text-xs text-gray-600 dark:text-gray-400">0</span>
                             <span className="text-xs text-gray-600 dark:text-gray-400">
                               {answers.weight.unit === 'lbs' ? '100+ lbs' : '45+ kg'}
@@ -501,28 +534,92 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                       <h2 className="text-3xl font-bold text-gray-900 dark:text-white">How would you describe your dog's energy level and temperament?</h2>
                       <p className="text-gray-600 dark:text-gray-300">This helps us match toys and activities to your dog's personality.</p>
                       
-                      <div className="mt-4 space-y-3">
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
-                          { id: "high", label: "High energy & playful: Constantly active, loves to run and play." },
-                          { id: "moderate", label: "Moderate energy & friendly: Enjoys playtime but also relaxes when needed." },
-                          { id: "low", label: "Low energy & calm: Prefers lounging and is less active." },
-                          { id: "sensitive", label: "Sensitive & cautious: Easily overwhelmed or shy; takes time to warm up." },
-                          { id: "mixed", label: "Mixed/Not sure: A blend of the above or not clearly defined." }
-                        ].map((option) => (
-                          <div 
+                          { 
+                            id: "high", 
+                            label: "High Energy", 
+                            emoji: "🏃‍♂️", 
+                            description: "Constantly active, loves to run and play.",
+                            color: "from-red-500/10 to-red-400/5",
+                            hover: "group-hover:text-red-500"
+                          },
+                          { 
+                            id: "moderate", 
+                            label: "Moderate Energy", 
+                            emoji: "🐕", 
+                            description: "Enjoys playtime but also relaxes when needed.",
+                            color: "from-amber-500/10 to-yellow-400/5",
+                            hover: "group-hover:text-amber-500"
+                          },
+                          { 
+                            id: "low", 
+                            label: "Low Energy", 
+                            emoji: "😴", 
+                            description: "Prefers lounging and is less active.",
+                            color: "from-blue-500/10 to-blue-400/5",
+                            hover: "group-hover:text-blue-500"
+                          },
+                          { 
+                            id: "sensitive", 
+                            label: "Sensitive", 
+                            emoji: "🤔", 
+                            description: "Easily overwhelmed or shy; takes time to warm up.",
+                            color: "from-purple-500/10 to-purple-400/5",
+                            hover: "group-hover:text-purple-500"
+                          },
+                          { 
+                            id: "mixed", 
+                            label: "Mixed/Not Sure", 
+                            emoji: "❓", 
+                            description: "A blend of the above or not clearly defined.",
+                            color: "from-gray-500/10 to-gray-400/5",
+                            hover: "group-hover:text-gray-500"
+                          }
+                        ].map((option, index) => (
+                          <motion.div 
                             key={option.id}
                             onClick={() => updateAnswer("temperament", option.id)}
-                            className={`p-4 border ${answers.temperament === option.id ? 'border-primary bg-primary/5' : 'border-gray-300 dark:border-gray-700'} rounded-xl cursor-pointer hover:border-primary transition-colors`}
+                            className={`p-5 cursor-pointer group hover:shadow-lg transition-all duration-300 
+                              ${answers.temperament === option.id 
+                                ? 'bg-gradient-to-br border-2 border-primary/50 shadow-lg' 
+                                : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'} 
+                              rounded-2xl ${option.id === 'mixed' ? 'md:col-span-2' : ''}`}
+                            variants={itemVariants}
+                            custom={index}
+                            initial="hidden"
+                            animate="visible"
+                            whileHover={{ y: -5 }}
+                            style={{
+                              background: answers.temperament === option.id 
+                                ? `linear-gradient(to bottom right, var(--primary-color-10), var(--primary-color-5))` 
+                                : undefined
+                            }}
                           >
-                            <div className="flex items-center space-x-3">
-                              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${answers.temperament === option.id ? 'border-primary' : 'border-gray-400'}`}>
-                                {answers.temperament === option.id && (
-                                  <div className="w-3 h-3 rounded-full bg-primary"></div>
-                                )}
+                            <div className="flex flex-col space-y-2">
+                              <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center">
+                                  <span className="text-2xl mr-3">{option.emoji}</span>
+                                  <h3 className={`font-bold text-lg ${answers.temperament === option.id ? 'text-primary' : `${option.hover}`}`}>
+                                    {option.label}
+                                  </h3>
+                                </div>
+                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center 
+                                  ${answers.temperament === option.id 
+                                    ? 'border-primary bg-primary/10' 
+                                    : 'border-gray-300 group-hover:border-primary/50'}`}>
+                                  {answers.temperament === option.id && (
+                                    <motion.div 
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      className="w-3 h-3 rounded-full bg-primary"
+                                    />
+                                  )}
+                                </div>
                               </div>
-                              <span className="text-gray-900 dark:text-white">{option.label}</span>
+                              <p className="text-gray-600 dark:text-gray-400">{option.description}</p>
                             </div>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                       
@@ -558,28 +655,87 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                       <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Does your dog have any dietary restrictions, allergies, or health concerns?</h2>
                       <p className="text-gray-600 dark:text-gray-300">Select all that apply. This ensures we only include safe treats for your dog.</p>
                       
-                      <div className="mt-4 space-y-3">
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
-                          { id: "none", label: "No known restrictions or allergies." },
-                          { id: "food-allergies", label: "Food allergies: For example, allergies to chicken, beef, wheat, or dairy." },
-                          { id: "special-diet", label: "Special dietary needs: Requires grain-free, limited ingredient, or organic food." },
-                          { id: "health-concerns", label: "Health concerns: Such as digestive issues, skin sensitivities, or joint problems." },
-                          { id: "not-sure", label: "Not sure/Other: I'm uncertain or have additional considerations not listed." }
-                        ].map((option) => (
-                          <div 
+                          { 
+                            id: "none", 
+                            label: "No Restrictions", 
+                            emoji: "✅", 
+                            description: "No known restrictions or allergies.",
+                            color: "from-green-500/10 to-green-400/5"
+                          },
+                          { 
+                            id: "food-allergies", 
+                            label: "Food Allergies", 
+                            emoji: "🍗", 
+                            description: "Allergies to chicken, beef, wheat, or dairy.",
+                            color: "from-rose-500/10 to-rose-400/5"
+                          },
+                          { 
+                            id: "special-diet", 
+                            label: "Special Diet", 
+                            emoji: "🥦", 
+                            description: "Requires grain-free, limited ingredient, or organic food.",
+                            color: "from-blue-500/10 to-blue-400/5"
+                          },
+                          { 
+                            id: "health-concerns", 
+                            label: "Health Concerns", 
+                            emoji: "🩺", 
+                            description: "Digestive issues, skin sensitivities, or joint problems.",
+                            color: "from-amber-500/10 to-amber-400/5"
+                          },
+                          { 
+                            id: "not-sure", 
+                            label: "Not Sure/Other", 
+                            emoji: "❓", 
+                            description: "I'm uncertain or have additional considerations not listed.",
+                            color: "from-gray-500/10 to-gray-400/5"
+                          }
+                        ].map((option, index) => (
+                          <motion.div 
                             key={option.id}
                             onClick={() => updateMultipleAnswer("dietary", option.id)}
-                            className={`p-4 border ${answers.dietary.includes(option.id) ? 'border-primary bg-primary/5' : 'border-gray-300 dark:border-gray-700'} rounded-xl cursor-pointer hover:border-primary transition-colors`}
+                            className={`p-5 cursor-pointer group hover:shadow-lg transition-all duration-300
+                              ${answers.dietary.includes(option.id) 
+                                ? 'bg-gradient-to-br border-2 border-primary/50 shadow-lg' 
+                                : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'} 
+                              rounded-2xl ${option.id === 'not-sure' ? 'md:col-span-2' : ''}`}
+                            variants={itemVariants}
+                            custom={index}
+                            initial="hidden"
+                            animate="visible"
+                            whileHover={{ y: -3 }}
+                            style={{
+                              background: answers.dietary.includes(option.id) 
+                                ? `linear-gradient(to bottom right, var(--primary-color-10), var(--primary-color-5))` 
+                                : undefined
+                            }}
                           >
-                            <div className="flex items-center space-x-3">
-                              <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center ${answers.dietary.includes(option.id) ? 'border-primary' : 'border-gray-400'}`}>
-                                {answers.dietary.includes(option.id) && (
-                                  <div className="w-3 h-3 bg-primary"></div>
-                                )}
+                            <div className="flex flex-col space-y-2">
+                              <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center">
+                                  <span className="text-2xl mr-3">{option.emoji}</span>
+                                  <h3 className={`font-bold text-lg ${answers.dietary.includes(option.id) ? 'text-primary' : 'group-hover:text-primary'}`}>
+                                    {option.label}
+                                  </h3>
+                                </div>
+                                <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center 
+                                  ${answers.dietary.includes(option.id) 
+                                    ? 'border-primary bg-primary/10' 
+                                    : 'border-gray-300 group-hover:border-primary/50'}`}>
+                                  {answers.dietary.includes(option.id) && (
+                                    <motion.div 
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      className="w-3 h-3 bg-primary"
+                                    />
+                                  )}
+                                </div>
                               </div>
-                              <span className="text-gray-900 dark:text-white">{option.label}</span>
+                              <p className="text-gray-600 dark:text-gray-400">{option.description}</p>
                             </div>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                       
@@ -615,29 +771,94 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                       <h2 className="text-3xl font-bold text-gray-900 dark:text-white">What are your main training or behavior goals/challenges with your dog?</h2>
                       <p className="text-gray-600 dark:text-gray-300">This helps us include appropriate training tools and resources.</p>
                       
-                      <div className="mt-4 space-y-3">
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
-                          { id: "potty", label: "Housebreaking/Potty Training: Establishing a consistent bathroom routine." },
-                          { id: "chewing", label: "Chewing & Biting Control: Preventing destructive chewing or inappropriate biting." },
-                          { id: "socialization", label: "Socialization: Helping the dog interact confidently with people and other dogs." },
-                          { id: "obedience", label: "Basic Obedience & Commands: Teaching foundational commands like sit, stay, and come." },
-                          { id: "barking", label: "Excessive Barking/Anxiety: Managing anxiety-related behaviors or over-exuberant barking." },
-                          { id: "other", label: "Other: I have a different primary training challenge or goal." }
-                        ].map((option) => (
-                          <div 
+                          { 
+                            id: "potty", 
+                            label: "Potty Training", 
+                            emoji: "🚽", 
+                            description: "Establishing a consistent bathroom routine.",
+                            color: "from-cyan-500/10 to-cyan-400/5"
+                          },
+                          { 
+                            id: "chewing", 
+                            label: "Chewing & Biting", 
+                            emoji: "🦷", 
+                            description: "Preventing destructive chewing or inappropriate biting.",
+                            color: "from-orange-500/10 to-orange-400/5"
+                          },
+                          { 
+                            id: "socialization", 
+                            label: "Socialization", 
+                            emoji: "🐶", 
+                            description: "Helping your dog interact confidently with people and other dogs.",
+                            color: "from-indigo-500/10 to-indigo-400/5"
+                          },
+                          { 
+                            id: "obedience", 
+                            label: "Basic Obedience", 
+                            emoji: "👆", 
+                            description: "Teaching foundational commands like sit, stay, and come.",
+                            color: "from-green-500/10 to-green-400/5"
+                          },
+                          { 
+                            id: "barking", 
+                            label: "Barking & Anxiety", 
+                            emoji: "😨", 
+                            description: "Managing anxiety-related behaviors or over-exuberant barking.",
+                            color: "from-purple-500/10 to-purple-400/5"
+                          },
+                          { 
+                            id: "other", 
+                            label: "Other Goals", 
+                            emoji: "🎯", 
+                            description: "I have a different primary training challenge or goal.",
+                            color: "from-gray-500/10 to-gray-400/5"
+                          }
+                        ].map((option, index) => (
+                          <motion.div 
                             key={option.id}
                             onClick={() => updateAnswer("training", option.id)}
-                            className={`p-4 border ${answers.training === option.id ? 'border-primary bg-primary/5' : 'border-gray-300 dark:border-gray-700'} rounded-xl cursor-pointer hover:border-primary transition-colors`}
+                            className={`p-5 cursor-pointer group hover:shadow-lg transition-all duration-300
+                              ${answers.training === option.id 
+                                ? 'bg-gradient-to-br border-2 border-primary/50 shadow-lg' 
+                                : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'} 
+                              rounded-2xl`}
+                            variants={itemVariants}
+                            custom={index}
+                            initial="hidden"
+                            animate="visible"
+                            whileHover={{ y: -3 }}
+                            style={{
+                              background: answers.training === option.id 
+                                ? `linear-gradient(to bottom right, var(--primary-color-10), var(--primary-color-5))` 
+                                : undefined
+                            }}
                           >
-                            <div className="flex items-center space-x-3">
-                              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${answers.training === option.id ? 'border-primary' : 'border-gray-400'}`}>
-                                {answers.training === option.id && (
-                                  <div className="w-3 h-3 rounded-full bg-primary"></div>
-                                )}
+                            <div className="flex flex-col space-y-2">
+                              <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center">
+                                  <span className="text-2xl mr-3">{option.emoji}</span>
+                                  <h3 className={`font-bold text-lg ${answers.training === option.id ? 'text-primary' : 'group-hover:text-primary'}`}>
+                                    {option.label}
+                                  </h3>
+                                </div>
+                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center 
+                                  ${answers.training === option.id 
+                                    ? 'border-primary bg-primary/10' 
+                                    : 'border-gray-300 group-hover:border-primary/50'}`}>
+                                  {answers.training === option.id && (
+                                    <motion.div 
+                                      initial={{ scale: 0 }}
+                                      animate={{ scale: 1 }}
+                                      className="w-3 h-3 rounded-full bg-primary"
+                                    />
+                                  )}
+                                </div>
                               </div>
-                              <span className="text-gray-900 dark:text-white">{option.label}</span>
+                              <p className="text-gray-600 dark:text-gray-400">{option.description}</p>
                             </div>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                       
