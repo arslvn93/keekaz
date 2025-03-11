@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu, LucideFootprints } from "lucide-react";
+import { X, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
@@ -35,19 +35,17 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "py-2 bg-white/20 backdrop-blur-xl shadow-lg border-b border-white/10"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-3">
-            <LucideFootprints className="text-white text-xl" />
-          </div>
-          <h1 className="font-bold text-2xl">
-            TAIL<span className="text-primary">WAG</span>™
+          <h1 className={`font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary/70 
+            ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300`}>
+            TAILWAG<span className="text-primary font-black">™</span>
           </h1>
         </div>
 
@@ -57,7 +55,8 @@ export default function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="font-medium hover:text-primary transition"
+                  className={`font-medium hover:text-primary transition-all duration-300
+                    ${isScrolled ? "text-sm" : "text-base"}`}
                 >
                   {link.label}
                 </a>
@@ -66,7 +65,12 @@ export default function Header() {
           </ul>
         </nav>
 
-        <Button className="hidden md:flex">Get Started</Button>
+        <Button 
+          className={`hidden md:flex transition-all duration-300 
+            ${isScrolled ? "h-8 text-sm px-3" : "h-10"}`}
+        >
+          Get Started
+        </Button>
 
         <button
           className="md:hidden text-2xl"
@@ -84,7 +88,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white shadow-lg absolute w-full left-0 top-full"
+            className="md:hidden backdrop-blur-xl bg-white/30 shadow-lg absolute w-full left-0 top-full border-b border-white/20"
           >
             <div className="container mx-auto px-4 py-5">
               <div className="flex justify-end mb-4">
