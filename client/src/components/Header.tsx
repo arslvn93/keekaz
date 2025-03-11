@@ -5,7 +5,11 @@ import { X, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "@/styles/glass.css";
 
-export default function Header() {
+interface HeaderProps {
+  onStartClick?: () => void;
+}
+
+export default function Header({ onStartClick }: HeaderProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -71,6 +75,7 @@ export default function Header() {
           <Button 
             className={`hidden md:flex transition-all duration-300 
               ${isScrolled ? "h-8 text-sm px-3" : "h-10"}`}
+            onClick={onStartClick}
           >
             Get Started
           </Button>
@@ -124,7 +129,13 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.4 }}
                   >
-                    <Button className="w-full">Get Started</Button>
+                    <Button 
+                      className="w-full"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        if (onStartClick) onStartClick();
+                      }}
+                    >Get Started</Button>
                   </motion.li>
                 </ul>
               </div>

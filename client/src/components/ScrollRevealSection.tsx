@@ -3,7 +3,11 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import TextReveal from "./TextReveal";
 
-export default function ScrollRevealSection() {
+interface ScrollRevealSectionProps {
+  onStartClick?: () => void;
+}
+
+export default function ScrollRevealSection({ onStartClick }: ScrollRevealSectionProps = {}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 }); // Reduced threshold to start earlier
   
@@ -42,7 +46,10 @@ export default function ScrollRevealSection() {
               <p className="text-2xl text-gray-300 mb-8 max-w-xl"> {/* Larger text to match */}
                 <span className="coni-logo font-bold">coni</span> uses advanced algorithms to understand exactly what your dog needs—right now.
               </p>
-              <button className="glass-card px-10 py-4 rounded-full text-xl font-semibold text-white bg-primary/30 hover:bg-primary/40 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-glow">
+              <button 
+                onClick={onStartClick}
+                className="glass-card px-10 py-4 rounded-full text-xl font-semibold text-white bg-primary/30 hover:bg-primary/40 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-glow"
+              >
                 Start Your Dog's Journey
               </button>
             </motion.div>

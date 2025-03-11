@@ -14,6 +14,10 @@ export default function CTASection({ onStartClick }: CTASectionProps = {}) {
     e.preventDefault();
     // Add form submission logic here
     console.log("Email submitted:", email);
+    // If onStartClick is provided, call it to open the questionnaire
+    if (onStartClick) {
+      onStartClick();
+    }
   };
 
   return (
