@@ -20,8 +20,14 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
   const [currentQuestion, setCurrentQuestion] = useState<QuestionType>("breedQuestion");
   const [answers, setAnswers] = useState({
     breed: "",
-    age: "",
-    weight: "",
+    age: {
+      value: 0,
+      unit: "years"
+    },
+    weight: {
+      value: 0,
+      unit: "lbs"
+    },
     temperament: "",
     dietary: [] as string[],
     training: ""
@@ -58,10 +64,50 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
   };
   
   // Answer update functions
-  const updateAnswer = (question: keyof typeof answers, value: string) => {
+  const updateAnswer = (question: keyof typeof answers, value: string | number | object) => {
     setAnswers({
       ...answers,
       [question]: value
+    });
+  };
+  
+  const updateAgeUnit = (unit: string) => {
+    setAnswers({
+      ...answers,
+      age: {
+        ...answers.age,
+        unit
+      }
+    });
+  };
+  
+  const updateAgeValue = (value: number) => {
+    setAnswers({
+      ...answers,
+      age: {
+        ...answers.age,
+        value
+      }
+    });
+  };
+  
+  const updateWeightUnit = (unit: string) => {
+    setAnswers({
+      ...answers,
+      weight: {
+        ...answers.weight,
+        unit
+      }
+    });
+  };
+  
+  const updateWeightValue = (value: number) => {
+    setAnswers({
+      ...answers,
+      weight: {
+        ...answers.weight,
+        value
+      }
     });
   };
   
@@ -272,17 +318,50 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                       transition={{ duration: 0.3 }}
                       className="space-y-6"
                     >
-                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white">How old is your dog (in months or years)?</h2>
+                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white">How old is your dog?</h2>
                       <p className="text-gray-600 dark:text-gray-300">Age helps us select age-appropriate items for your dog.</p>
                       
-                      <div className="mt-4">
-                        <input
-                          type="text"
-                          value={answers.age}
-                          onChange={(e) => updateAnswer("age", e.target.value)}
-                          placeholder="E.g., 4 years, 6 months"
-                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                        />
+                      <div className="mt-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl">
+                        <div className="flex flex-col sm:flex-row gap-4 items-center">
+                          <div className="w-full sm:w-2/3 flex items-center">
+                            <input
+                              type="number"
+                              min="0"
+                              max="30"
+                              value={answers.age.value}
+                              onChange={(e) => updateAgeValue(parseInt(e.target.value) || 0)}
+                              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary text-center text-xl"
+                            />
+                          </div>
+                          
+                          <div className="w-full sm:w-1/3">
+                            <div className="flex rounded-xl overflow-hidden">
+                              <button 
+                                type="button"
+                                onClick={() => updateAgeUnit("months")}
+                                className={`flex-1 py-3 px-4 text-center transition-colors ${answers.age.unit === 'months' 
+                                  ? 'bg-primary text-white' 
+                                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                              >
+                                Months
+                              </button>
+                              <button 
+                                type="button"
+                                onClick={() => updateAgeUnit("years")}
+                                className={`flex-1 py-3 px-4 text-center transition-colors ${answers.age.unit === 'years' 
+                                  ? 'bg-primary text-white' 
+                                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                              >
+                                Years
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-4 text-center text-gray-600 dark:text-gray-400">
+                          Your dog is {answers.age.value} {answers.age.unit}
+                          {answers.age.value !== 1 ? '' : answers.age.unit === 'years' ? ' old' : ' old'}
+                        </div>
                       </div>
                       
                       <div className="flex justify-between mt-8">
@@ -296,7 +375,7 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                         <button
                           type="button"
                           onClick={goToNextQuestion}
-                          disabled={!answers.age.trim()}
+                          disabled={answers.age.value === 0}
                           className="px-6 py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                         >
                           Next <ChevronRight size={18} />
@@ -314,17 +393,80 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                       transition={{ duration: 0.3 }}
                       className="space-y-6"
                     >
-                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white">What is your dog's current weight or estimated adult weight?</h2>
-                      <p className="text-gray-600 dark:text-gray-300">Weight helps us choose appropriate sized toys and treats.</p>
+                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white">What is your dog's weight?</h2>
+                      <p className="text-gray-600 dark:text-gray-300">Weight helps us select appropriate sized toys and treats.</p>
                       
-                      <div className="mt-4">
-                        <input
-                          type="text"
-                          value={answers.weight}
-                          onChange={(e) => updateAnswer("weight", e.target.value)}
-                          placeholder="E.g., 15 pounds"
-                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                        />
+                      <div className="mt-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl">
+                        <div className="flex flex-col sm:flex-row gap-4 items-center">
+                          <div className="w-full sm:w-2/3 flex items-center">
+                            <input
+                              type="number"
+                              min="0"
+                              max="200"
+                              value={answers.weight.value}
+                              onChange={(e) => updateWeightValue(parseInt(e.target.value) || 0)}
+                              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary text-center text-xl"
+                            />
+                          </div>
+                          
+                          <div className="w-full sm:w-1/3">
+                            <div className="flex rounded-xl overflow-hidden">
+                              <button 
+                                type="button"
+                                onClick={() => updateWeightUnit("lbs")}
+                                className={`flex-1 py-3 px-4 text-center transition-colors ${answers.weight.unit === 'lbs' 
+                                  ? 'bg-primary text-white' 
+                                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                              >
+                                lbs
+                              </button>
+                              <button 
+                                type="button"
+                                onClick={() => updateWeightUnit("kg")}
+                                className={`flex-1 py-3 px-4 text-center transition-colors ${answers.weight.unit === 'kg' 
+                                  ? 'bg-primary text-white' 
+                                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                              >
+                                kg
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-4 text-center text-gray-600 dark:text-gray-400">
+                          Your dog weighs {answers.weight.value} {answers.weight.unit}
+                        </div>
+                        
+                        <div className="mt-6 bg-primary/5 rounded-xl p-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-gray-700 dark:text-gray-300 text-sm">Small</span>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm">Large</span>
+                          </div>
+                          <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                            <motion.div 
+                              className="absolute top-0 left-0 bottom-0 bg-primary rounded-full"
+                              style={{ 
+                                width: `${Math.min(100, (answers.weight.unit === 'lbs' 
+                                  ? Math.max(0, answers.weight.value / 100) * 100 
+                                  : Math.max(0, answers.weight.value / 45) * 100))}%` 
+                              }}
+                            />
+                            <motion.div 
+                              className="absolute w-4 h-4 bg-white border-2 border-primary rounded-full -top-1 -ml-2"
+                              style={{ 
+                                left: `${Math.min(100, (answers.weight.unit === 'lbs' 
+                                  ? Math.max(0, answers.weight.value / 100) * 100 
+                                  : Math.max(0, answers.weight.value / 45) * 100))}%` 
+                              }}
+                            />
+                          </div>
+                          <div className="flex justify-between mt-2">
+                            <span className="text-xs text-gray-600 dark:text-gray-400">0</span>
+                            <span className="text-xs text-gray-600 dark:text-gray-400">
+                              {answers.weight.unit === 'lbs' ? '100+ lbs' : '45+ kg'}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                       
                       <div className="flex justify-between mt-8">
@@ -338,7 +480,7 @@ export default function PuppyQuestionnaire({ onClose }: PuppyQuestionnaireProps)
                         <button
                           type="button"
                           onClick={goToNextQuestion}
-                          disabled={!answers.weight.trim()}
+                          disabled={answers.weight.value === 0}
                           className="px-6 py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                         >
                           Next <ChevronRight size={18} />
