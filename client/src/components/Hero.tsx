@@ -79,6 +79,7 @@ export default function Hero({ onStartClick }: HeroProps = {}) {
               <Button
                 size="lg"
                 className="font-bold text-lg transition transform hover:-translate-y-1"
+                onClick={onStartClick}
               >
                 Start Your Dog's Journey
               </Button>

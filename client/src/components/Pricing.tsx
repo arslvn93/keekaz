@@ -3,7 +3,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Check, QuoteIcon } from "lucide-react";
 
-export default function Pricing() {
+interface PricingProps {
+  onStartClick?: () => void;
+}
+
+export default function Pricing({ onStartClick }: PricingProps = {}) {
   const [plansRef, plansInView] = useScrollAnimation(0.1);
   const [testimonialRef, testimonialInView] = useScrollAnimation(0.1);
 
@@ -141,6 +145,7 @@ export default function Pricing() {
                 <Button
                   className="w-full mt-6"
                   variant={plan.popular ? "default" : "outline"}
+                  onClick={onStartClick}
                 >
                   Choose Plan
                 </Button>

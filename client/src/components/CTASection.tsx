@@ -3,7 +3,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export default function CTASection() {
+interface CTASectionProps {
+  onStartClick?: () => void;
+}
+
+export default function CTASection({ onStartClick }: CTASectionProps = {}) {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
