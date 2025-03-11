@@ -5,7 +5,11 @@ import FloatingElement from "./FloatingElement";
 import FloatingRealPhoto from "./FloatingRealPhoto";
 import TextReveal from "./TextReveal";
 
-export default function Hero() {
+interface HeroProps {
+  onStartClick?: () => void;
+}
+
+export default function Hero({ onStartClick }: HeroProps = {}) {
   return (
     <section className="pt-44 pb-20 relative overflow-hidden">
       <div className="hero-blob top-0 left-0"></div>
