@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import "@/styles/glass.css";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,17 +36,17 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-morphism ${
         isScrolled
-          ? "py-2 bg-white/20 backdrop-blur-xl shadow-lg border-b border-white/10"
-          : "py-5 bg-transparent"
+          ? "py-2 scrolled"
+          : "py-5"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className={`font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary/70 
-            ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300`}>
-            CONI<span className="text-primary font-black">™</span>
+          <h1 className={`font-medium text-black ${isScrolled ? "text-xl" : "text-3xl"} transition-all duration-300 
+            font-['Comic_Sans_MS','Bubblegum_Sans',cursive]`}>
+            coni
           </h1>
         </div>
 
