@@ -146,8 +146,8 @@ export default function WhatsInside() {
           </div>
           
           <h2 className="font-bold text-3xl md:text-5xl mb-6 tracking-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">What's In Your Dog's</span> <span className="relative text-rose-500">
-              Perfect 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">What's In Your</span> <span className="relative coni-logo">
+              coni 
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 12" preserveAspectRatio="none">
                 <path d="M0,0 Q50,12 100,0" fill="none" stroke="currentColor" strokeWidth="3" className="text-accent/40" />
               </svg>
@@ -155,7 +155,7 @@ export default function WhatsInside() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Every month, your furry friend receives a personalized selection of <span className="font-semibold">5-7 premium items</span> specifically chosen by our ML algorithm:
+            Every month, your furry friend receives a personalized <span className="coni-logo">coni</span> box with <span className="font-semibold">5-7 premium items</span> specifically chosen by our AI algorithm:
           </p>
         </motion.div>
 
@@ -283,7 +283,7 @@ export default function WhatsInside() {
             className="inline-flex items-center gap-2 hover:shadow-lg transition transform hover:-translate-y-1 bg-gradient-to-r from-primary to-primary/90 text-white px-8 py-6 text-lg shadow-xl shadow-primary/20"
           >
             <Gift className="h-5 w-5 mr-1" />
-            Create Your Dog's Perfect Box
+            Create Your <span className="coni-logo">coni</span> Box
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
